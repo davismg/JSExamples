@@ -1,0 +1,112 @@
+﻿@model src.Models.PositionViewModel
+
+@{
+    Layout = null;
+}
+
+    <div class="row">
+        <div >
+            <h3>@Model.Position.Title</h3>
+        </div>
+    </div>
+    <div class="row">
+        <div class="nav-divider">
+            ID: @Model.Position.Number
+        </div>
+    </div>
+<hr/>
+
+<div class="Container">
+    <div class="row">
+        @if (!Model.Position.IsFilled)
+        {
+            <div class="col-md-12">
+                Position is not currently filled
+            </div>
+        }
+        else
+        {
+            <div class="labelRow">
+                <div class="row">
+                    <div class="col-md-6 txtLabel">
+                        Employee Name:
+                    </div>
+                    <div class="col-md-6">
+                        @Model.Position.Employee.FullName
+                    </div>
+                </div>
+            </div>
+            <div class="labelRow">
+                <div class="row">
+                    <div class="col-md-6 txtLabel">
+                        Birth Date:
+                    </div>
+                    <div class="col-md-6 txtLabel">
+                        Gender:
+                    </div>
+                    <div class="col-md-6">
+                        @Model.Position.Employee.BirthDate.ToShortDateString()
+                    </div>
+                    <div class="col-md-6">
+                        @Model.Position.Employee.Gender
+                    </div>
+                </div>
+            </div>
+            <div class="labelRow">
+                <div class="row">
+                    <div class="col-md-6 txtLabel">
+                        Start Date:
+                    </div>
+                    <div class="col-md-6 txtLabel">
+                        First Working Date:
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md-6">
+                        @Model.Position.Employee.StartDate.ToShortDateString()
+                    </div>
+                    <div class="col-md-6">
+                        @Model.Position.Employee.FirstWorkingDate.ToShortDateString()
+                    </div>
+                </div>
+            </div>
+            <div class="labelRow">
+                <div class="row">
+                    <div class="col-md-6 txtLabel">
+                        Proposed Start Date:
+                    </div>
+                    <div class="col-md-6 txtLabel">
+                        Proposed End Date:
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md-6">
+                        @Model.Position.Employee.ProposedStartDate.ToShortDateString()
+                    </div>
+                    <div class="col-md-6">
+                        @(Model.Position.Employee.ProposedEndDate.HasValue ? Model.Position.Employee.ProposedEndDate.Value.ToShortDateString() : string.Empty)
+                    </div>
+                </div>
+            </div>
+            <div class="labelRow">
+                <div class="row">
+                    <div class="col-md-6 txtLabel">
+                        Sub Group:
+                    </div>
+                    <div class="col-md-6 txtLabel">
+                        Employent Type:
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md-6">
+                        @(Model.Position.Employee.SubGroup != null ? Model.Position.Employee.SubGroup.Name : string.Empty)
+                    </div>
+                    <div class="col-md-6">
+                        @(Model.Position.Employee.EmploymentType != null ? Model.Position.Employee.EmploymentType.Name : string.Empty)
+                    </div>
+                </div>
+            </div>
+
+        }
+            </div>
+</div>

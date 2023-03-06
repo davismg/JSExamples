@@ -1,0 +1,477 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="WorkforcePlanningModelStoreContainer" CdmEntityContainer="WorkforcePlanningEntities">
+    <EntitySetMapping Name="CostCentres">
+      <EntityTypeMapping TypeName="WorkforcePlanningModel.CostCentre">
+        <MappingFragment StoreEntitySet="CostCentre">
+          <ScalarProperty Name="EffectiveToDate" ColumnName="EffectiveToDate" />
+          <ScalarProperty Name="EffectiveFromDate" ColumnName="EffectiveFromDate" />
+          <ScalarProperty Name="ModifiedDate" ColumnName="ModifiedDate" />
+          <ScalarProperty Name="CreatedDate" ColumnName="CreatedDate" />
+          <ScalarProperty Name="CreatedBy" ColumnName="CreatedBy" />
+          <ScalarProperty Name="ModifiedBy" ColumnName="ModifiedBy" />
+          <ScalarProperty Name="Number" ColumnName="Number" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="Id" ColumnName="Id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="DataSourceFileConfigurations">
+      <EntityTypeMapping TypeName="WorkforcePlanningModel.DataSourceFileConfiguration">
+        <MappingFragment StoreEntitySet="DataSourceFileConfigurations">
+          <ScalarProperty Name="EffectiveToDate" ColumnName="EffectiveToDate" />
+          <ScalarProperty Name="EffectiveFromDate" ColumnName="EffectiveFromDate" />
+          <ScalarProperty Name="ModifiedDate" ColumnName="ModifiedDate" />
+          <ScalarProperty Name="CreatedDate" ColumnName="CreatedDate" />
+          <ScalarProperty Name="CreatedBy" ColumnName="CreatedBy" />
+          <ScalarProperty Name="ModifiedBy" ColumnName="ModifiedBy" />
+          <ScalarProperty Name="FirstRowHasColumnNames" ColumnName="FirstRowHasColumnNames" />
+          <ScalarProperty Name="SourceFileName" ColumnName="SourceFileName" />
+          <ScalarProperty Name="DataLoadLocation" ColumnName="DataLoadLocation" />
+          <ScalarProperty Name="Id" ColumnName="Id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Employees">
+      <EntityTypeMapping TypeName="WorkforcePlanningModel.Employee">
+        <MappingFragment StoreEntitySet="Employee">
+          <ScalarProperty Name="CreatedDate" ColumnName="CreatedDate" />
+          <ScalarProperty Name="CreatedBy" ColumnName="CreatedBy" />
+          <ScalarProperty Name="Gender" ColumnName="Gender" />
+          <ScalarProperty Name="ProposedEndDate" ColumnName="ProposedEndDate" />
+          <ScalarProperty Name="ProposedStartDate" ColumnName="ProposedStartDate" />
+          <ScalarProperty Name="FirstWorkingDate" ColumnName="FirstWorkingDate" />
+          <ScalarProperty Name="StartDate" ColumnName="StartDate" />
+          <ScalarProperty Name="BirthDate" ColumnName="BirthDate" />
+          <ScalarProperty Name="LastName" ColumnName="LastName" />
+          <ScalarProperty Name="FirstName" ColumnName="FirstName" />
+          <ScalarProperty Name="EmploymentTypeId" ColumnName="EmploymentTypeId" />
+          <ScalarProperty Name="SubGroupId" ColumnName="SubGroupId" />
+          <ScalarProperty Name="Number" ColumnName="Number" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="EmployeeHistories">
+      <EntityTypeMapping TypeName="WorkforcePlanningModel.EmployeeHistory">
+        <MappingFragment StoreEntitySet="EmployeeHistory">
+          <ScalarProperty Name="CreatedDate" ColumnName="CreatedDate" />
+          <ScalarProperty Name="CreatedBy" ColumnName="CreatedBy" />
+          <ScalarProperty Name="Gender" ColumnName="Gender" />
+          <ScalarProperty Name="ProposedEndDate" ColumnName="ProposedEndDate" />
+          <ScalarProperty Name="ProposedStartDate" ColumnName="ProposedStartDate" />
+          <ScalarProperty Name="FirstWorkingDate" ColumnName="FirstWorkingDate" />
+          <ScalarProperty Name="StartDate" ColumnName="StartDate" />
+          <ScalarProperty Name="BirthDate" ColumnName="BirthDate" />
+          <ScalarProperty Name="LastName" ColumnName="LastName" />
+          <ScalarProperty Name="FirstName" ColumnName="FirstName" />
+          <ScalarProperty Name="EmploymentTypeId" ColumnName="EmploymentTypeId" />
+          <ScalarProperty Name="SubGroupId" ColumnName="SubGroupId" />
+          <ScalarProperty Name="Number" ColumnName="Number" />
+          <ScalarProperty Name="ID" ColumnName="ID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="EmploymentTypes">
+      <EntityTypeMapping TypeName="WorkforcePlanningModel.EmploymentType">
+        <MappingFragment StoreEntitySet="EmploymentType">
+          <ScalarProperty Name="EffectiveToDate" ColumnName="EffectiveToDate" />
+          <ScalarProperty Name="EffectiveFromDate" ColumnName="EffectiveFromDate" />
+          <ScalarProperty Name="ModifiedDate" ColumnName="ModifiedDate" />
+          <ScalarProperty Name="CreatedDate" ColumnName="CreatedDate" />
+          <ScalarProperty Name="CreatedBy" ColumnName="CreatedBy" />
+          <ScalarProperty Name="ModifiedBy" ColumnName="ModifiedBy" />
+          <ScalarProperty Name="IsActive" ColumnName="IsActive" />
+          <ScalarProperty Name="Description" ColumnName="Description" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="Id" ColumnName="Id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Goas">
+      <EntityTypeMapping TypeName="WorkforcePlanningModel.Goa">
+        <MappingFragment StoreEntitySet="Goa">
+          <ScalarProperty Name="EffectiveToDate" ColumnName="EffectiveToDate" />
+          <ScalarProperty Name="EffectiveFromDate" ColumnName="EffectiveFromDate" />
+          <ScalarProperty Name="ModifiedDate" ColumnName="ModifiedDate" />
+          <ScalarProperty Name="CreatedDate" ColumnName="CreatedDate" />
+          <ScalarProperty Name="CreatedBy" ColumnName="CreatedBy" />
+          <ScalarProperty Name="ModifiedBy" ColumnName="ModifiedBy" />
+          <ScalarProperty Name="Number" ColumnName="Number" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="Id" ColumnName="Id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Jobs">
+      <EntityTypeMapping TypeName="WorkforcePlanningModel.Job">
+        <MappingFragment StoreEntitySet="Job">
+          <ScalarProperty Name="EffectiveToDate" ColumnName="EffectiveToDate" />
+          <ScalarProperty Name="EffectiveFromDate" ColumnName="EffectiveFromDate" />
+          <ScalarProperty Name="ModifiedDate" ColumnName="ModifiedDate" />
+          <ScalarProperty Name="CreatedDate" ColumnName="CreatedDate" />
+          <ScalarProperty Name="CreatedBy" ColumnName="CreatedBy" />
+          <ScalarProperty Name="ModifiedBy" ColumnName="ModifiedBy" />
+          <ScalarProperty Name="Number" ColumnName="Number" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="Id" ColumnName="Id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="JobFamilies">
+      <EntityTypeMapping TypeName="WorkforcePlanningModel.JobFamily">
+        <MappingFragment StoreEntitySet="JobFamily">
+          <ScalarProperty Name="EffectiveToDate" ColumnName="EffectiveToDate" />
+          <ScalarProperty Name="EffectiveFromDate" ColumnName="EffectiveFromDate" />
+          <ScalarProperty Name="ModifiedDate" ColumnName="ModifiedDate" />
+          <ScalarProperty Name="CreatedDate" ColumnName="CreatedDate" />
+          <ScalarProperty Name="CreatedBy" ColumnName="CreatedBy" />
+          <ScalarProperty Name="ModifiedBy" ColumnName="ModifiedBy" />
+          <ScalarProperty Name="Number" ColumnName="Number" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="Id" ColumnName="Id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Locations">
+      <EntityTypeMapping TypeName="WorkforcePlanningModel.Location">
+        <MappingFragment StoreEntitySet="Location">
+          <ScalarProperty Name="EffectiveToDate" ColumnName="EffectiveToDate" />
+          <ScalarProperty Name="EffectiveFromDate" ColumnName="EffectiveFromDate" />
+          <ScalarProperty Name="ModifiedDate" ColumnName="ModifiedDate" />
+          <ScalarProperty Name="CreatedDate" ColumnName="CreatedDate" />
+          <ScalarProperty Name="CreatedBy" ColumnName="CreatedBy" />
+          <ScalarProperty Name="ModifiedBy" ColumnName="ModifiedBy" />
+          <ScalarProperty Name="LocationTypeId" ColumnName="LocationTypeId" />
+          <ScalarProperty Name="Building" ColumnName="Building" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="Id" ColumnName="Id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="LocationTypes">
+      <EntityTypeMapping TypeName="WorkforcePlanningModel.LocationType">
+        <MappingFragment StoreEntitySet="LocationType">
+          <ScalarProperty Name="EffectiveToDate" ColumnName="EffectiveToDate" />
+          <ScalarProperty Name="EffectiveFromDate" ColumnName="EffectiveFromDate" />
+          <ScalarProperty Name="ModifiedDate" ColumnName="ModifiedDate" />
+          <ScalarProperty Name="CreatedDate" ColumnName="CreatedDate" />
+          <ScalarProperty Name="CreatedBy" ColumnName="CreatedBy" />
+          <ScalarProperty Name="ModifiedBy" ColumnName="ModifiedBy" />
+          <ScalarProperty Name="IsActive" ColumnName="IsActive" />
+          <ScalarProperty Name="Description" ColumnName="Description" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="Id" ColumnName="Id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="PayScaleTypes">
+      <EntityTypeMapping TypeName="WorkforcePlanningModel.PayScaleType">
+        <MappingFragment StoreEntitySet="PayScaleType">
+          <ScalarProperty Name="EffectiveToDate" ColumnName="EffectiveToDate" />
+          <ScalarProperty Name="EffectiveFromDate" ColumnName="EffectiveFromDate" />
+          <ScalarProperty Name="ModifiedDate" ColumnName="ModifiedDate" />
+          <ScalarProperty Name="CreatedDate" ColumnName="CreatedDate" />
+          <ScalarProperty Name="CreatedBy" ColumnName="CreatedBy" />
+          <ScalarProperty Name="ModifiedBy" ColumnName="ModifiedBy" />
+          <ScalarProperty Name="IsActive" ColumnName="IsActive" />
+          <ScalarProperty Name="Description" ColumnName="Description" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="Id" ColumnName="Id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="PersonnelSubAreas">
+      <EntityTypeMapping TypeName="WorkforcePlanningModel.PersonnelSubArea">
+        <MappingFragment StoreEntitySet="PersonnelSubArea">
+          <ScalarProperty Name="EffectiveToDate" ColumnName="EffectiveToDate" />
+          <ScalarProperty Name="EffectiveFromDate" ColumnName="EffectiveFromDate" />
+          <ScalarProperty Name="ModifiedDate" ColumnName="ModifiedDate" />
+          <ScalarProperty Name="CreatedDate" ColumnName="CreatedDate" />
+          <ScalarProperty Name="CreatedBy" ColumnName="CreatedBy" />
+          <ScalarProperty Name="ModifiedBy" ColumnName="ModifiedBy" />
+          <ScalarProperty Name="IsActive" ColumnName="IsActive" />
+          <ScalarProperty Name="Description" ColumnName="Description" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="Id" ColumnName="Id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Positions">
+      <EntityTypeMapping TypeName="WorkforcePlanningModel.Position">
+        <MappingFragment StoreEntitySet="Position">
+          <ScalarProperty Name="CreatedDate" ColumnName="CreatedDate" />
+          <ScalarProperty Name="CreatedBy" ColumnName="CreatedBy" />
+          <ScalarProperty Name="PlanningSalaryBand" ColumnName="PlanningSalaryBand" />
+          <ScalarProperty Name="FullTimeEquivalencyPercentage" ColumnName="FullTimeEquivalencyPercentage" />
+          <ScalarProperty Name="EmploymentPercentage" ColumnName="EmploymentPercentage" />
+          <ScalarProperty Name="PlanningSalary" ColumnName="PlanningSalary" />
+          <ScalarProperty Name="PlannedEndDate" ColumnName="PlannedEndDate" />
+          <ScalarProperty Name="PlannedStartDate" ColumnName="PlannedStartDate" />
+          <ScalarProperty Name="IsCriticalSkill" ColumnName="IsCriticalSkill" />
+          <ScalarProperty Name="DoesCountAsHeadCount" ColumnName="DoesCountAsHeadCount" />
+          <ScalarProperty Name="HardToRecruit" ColumnName="HardToRecruit" />
+          <ScalarProperty Name="OvertimeExempt" ColumnName="OvertimeExempt" />
+          <ScalarProperty Name="PayScaleLevelMax" ColumnName="PayScaleLevelMax" />
+          <ScalarProperty Name="PayScaleLevelMin" ColumnName="PayScaleLevelMin" />
+          <ScalarProperty Name="PayScaleGroupMax" ColumnName="PayScaleGroupMax" />
+          <ScalarProperty Name="PayScaleGroupMin" ColumnName="PayScaleGroupMin" />
+          <ScalarProperty Name="Title" ColumnName="Title" />
+          <ScalarProperty Name="WorkScheduleId" ColumnName="WorkScheduleId" />
+          <ScalarProperty Name="PayScaleTypeId" ColumnName="PayScaleTypeId" />
+          <ScalarProperty Name="PersonnelSubAreaId" ColumnName="PersonnelSubAreaId" />
+          <ScalarProperty Name="EmploymentTypeId" ColumnName="EmploymentTypeId" />
+          <ScalarProperty Name="SubGroupId" ColumnName="SubGroupId" />
+          <ScalarProperty Name="WorkLocationId" ColumnName="WorkLocationId" />
+          <ScalarProperty Name="LocationId" ColumnName="LocationId" />
+          <ScalarProperty Name="FlowToCostCentreId" ColumnName="FlowToCostCentreId" />
+          <ScalarProperty Name="HomeCostCentreId" ColumnName="HomeCostCentreId" />
+          <ScalarProperty Name="CostCentreId" ColumnName="CostCentreId" />
+          <ScalarProperty Name="GoaId" ColumnName="GoaId" />
+          <ScalarProperty Name="JobFamilyId" ColumnName="JobFamilyId" />
+          <ScalarProperty Name="JobId" ColumnName="JobId" />
+          <ScalarProperty Name="EmployeeNumber" ColumnName="EmployeeNumber" />
+          <ScalarProperty Name="ManagingPositionNumber" ColumnName="ManagingPositionNumber" />
+          <ScalarProperty Name="PositionDataSetId" ColumnName="PositionDataSetId" />
+          <ScalarProperty Name="Number" ColumnName="Number" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="PositionDataSets">
+      <EntityTypeMapping TypeName="WorkforcePlanningModel.PositionDataSet">
+        <MappingFragment StoreEntitySet="PositionDataSets">
+          <ScalarProperty Name="EffectiveToDate" ColumnName="EffectiveToDate" />
+          <ScalarProperty Name="EffectiveFromDate" ColumnName="EffectiveFromDate" />
+          <ScalarProperty Name="ModifiedDate" ColumnName="ModifiedDate" />
+          <ScalarProperty Name="CreatedDate" ColumnName="CreatedDate" />
+          <ScalarProperty Name="CreatedBy" ColumnName="CreatedBy" />
+          <ScalarProperty Name="ModifiedBy" ColumnName="ModifiedBy" />
+          <ScalarProperty Name="AsOfDate" ColumnName="AsOfDate" />
+          <ScalarProperty Name="Id" ColumnName="Id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="PositionRevisions">
+      <EntityTypeMapping TypeName="WorkforcePlanningModel.PositionRevision">
+        <MappingFragment StoreEntitySet="PositionRevision">
+          <ScalarProperty Name="ModifiedDate" ColumnName="ModifiedDate" />
+          <ScalarProperty Name="ModifiedBy" ColumnName="ModifiedBy" />
+          <ScalarProperty Name="CreatedDate" ColumnName="CreatedDate" />
+          <ScalarProperty Name="CreatedBy" ColumnName="CreatedBy" />
+          <ScalarProperty Name="PlanningSalaryBand" ColumnName="PlanningSalaryBand" />
+          <ScalarProperty Name="FullTimeEquivalencyPercentage" ColumnName="FullTimeEquivalencyPercentage" />
+          <ScalarProperty Name="EmploymentPercentage" ColumnName="EmploymentPercentage" />
+          <ScalarProperty Name="PlanningSalary" ColumnName="PlanningSalary" />
+          <ScalarProperty Name="PlannedEndDate" ColumnName="PlannedEndDate" />
+          <ScalarProperty Name="PlannedStartDate" ColumnName="PlannedStartDate" />
+          <ScalarProperty Name="IsCriticalSkill" ColumnName="IsCriticalSkill" />
+          <ScalarProperty Name="DoesCountAsHeadCount" ColumnName="DoesCountAsHeadCount" />
+          <ScalarProperty Name="HardToRecruit" ColumnName="HardToRecruit" />
+          <ScalarProperty Name="OvertimeExempt" ColumnName="OvertimeExempt" />
+          <ScalarProperty Name="PayScaleLevelMax" ColumnName="PayScaleLevelMax" />
+          <ScalarProperty Name="PayScaleLevelMin" ColumnName="PayScaleLevelMin" />
+          <ScalarProperty Name="PayScaleGroupMax" ColumnName="PayScaleGroupMax" />
+          <ScalarProperty Name="PayScaleGroupMin" ColumnName="PayScaleGroupMin" />
+          <ScalarProperty Name="Title" ColumnName="Title" />
+          <ScalarProperty Name="WorkScheduleId" ColumnName="WorkScheduleId" />
+          <ScalarProperty Name="PayScaleTypeId" ColumnName="PayScaleTypeId" />
+          <ScalarProperty Name="PersonnelSubAreaId" ColumnName="PersonnelSubAreaId" />
+          <ScalarProperty Name="EmploymentTypeId" ColumnName="EmploymentTypeId" />
+          <ScalarProperty Name="SubGroupId" ColumnName="SubGroupId" />
+          <ScalarProperty Name="WorkLocationId" ColumnName="WorkLocationId" />
+          <ScalarProperty Name="LocationId" ColumnName="LocationId" />
+          <ScalarProperty Name="FlowToCostCentreId" ColumnName="FlowToCostCentreId" />
+          <ScalarProperty Name="HomeCostCentreId" ColumnName="HomeCostCentreId" />
+          <ScalarProperty Name="CostCentreId" ColumnName="CostCentreId" />
+          <ScalarProperty Name="GoaId" ColumnName="GoaId" />
+          <ScalarProperty Name="JobFamilyId" ColumnName="JobFamilyId" />
+          <ScalarProperty Name="JobId" ColumnName="JobId" />
+          <ScalarProperty Name="EmployeeNumber" ColumnName="EmployeeNumber" />
+          <ScalarProperty Name="ManagingPositionNumber" ColumnName="ManagingPositionNumber" />
+          <ScalarProperty Name="Number" ColumnName="Number" />
+          <ScalarProperty Name="Id" ColumnName="Id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="SourceFileColumnMappings">
+      <EntityTypeMapping TypeName="WorkforcePlanningModel.SourceFileColumnMapping">
+        <MappingFragment StoreEntitySet="SourceFileColumnMappings">
+          <ScalarProperty Name="EffectiveToDate" ColumnName="EffectiveToDate" />
+          <ScalarProperty Name="EffectiveFromDate" ColumnName="EffectiveFromDate" />
+          <ScalarProperty Name="ModifiedDate" ColumnName="ModifiedDate" />
+          <ScalarProperty Name="CreatedDate" ColumnName="CreatedDate" />
+          <ScalarProperty Name="CreatedBy" ColumnName="CreatedBy" />
+          <ScalarProperty Name="ModifiedBy" ColumnName="ModifiedBy" />
+          <ScalarProperty Name="ColumnLetter" ColumnName="ColumnLetter" />
+          <ScalarProperty Name="ColumnIndex" ColumnName="ColumnIndex" />
+          <ScalarProperty Name="FieldName" ColumnName="FieldName" />
+          <ScalarProperty Name="DataSourceFileId" ColumnName="DataSourceFileId" />
+          <ScalarProperty Name="Id" ColumnName="Id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="SubGroups">
+      <EntityTypeMapping TypeName="WorkforcePlanningModel.SubGroup">
+        <MappingFragment StoreEntitySet="SubGroup">
+          <ScalarProperty Name="EffectiveToDate" ColumnName="EffectiveToDate" />
+          <ScalarProperty Name="EffectiveFromDate" ColumnName="EffectiveFromDate" />
+          <ScalarProperty Name="ModifiedDate" ColumnName="ModifiedDate" />
+          <ScalarProperty Name="CreatedDate" ColumnName="CreatedDate" />
+          <ScalarProperty Name="CreatedBy" ColumnName="CreatedBy" />
+          <ScalarProperty Name="ModifiedBy" ColumnName="ModifiedBy" />
+          <ScalarProperty Name="IsActive" ColumnName="IsActive" />
+          <ScalarProperty Name="Description" ColumnName="Description" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="Id" ColumnName="Id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="WorkSchedules">
+      <EntityTypeMapping TypeName="WorkforcePlanningModel.WorkSchedule">
+        <MappingFragment StoreEntitySet="WorkSchedule">
+          <ScalarProperty Name="EffectiveToDate" ColumnName="EffectiveToDate" />
+          <ScalarProperty Name="EffectiveFromDate" ColumnName="EffectiveFromDate" />
+          <ScalarProperty Name="ModifiedDate" ColumnName="ModifiedDate" />
+          <ScalarProperty Name="CreatedDate" ColumnName="CreatedDate" />
+          <ScalarProperty Name="CreatedBy" ColumnName="CreatedBy" />
+          <ScalarProperty Name="ModifiedBy" ColumnName="ModifiedBy" />
+          <ScalarProperty Name="IsActive" ColumnName="IsActive" />
+          <ScalarProperty Name="Description" ColumnName="Description" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="Id" ColumnName="Id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="PositionHistories">
+      <EntityTypeMapping TypeName="WorkforcePlanningModel.PositionHistory">
+        <MappingFragment StoreEntitySet="PositionHistory">
+          <ScalarProperty Name="ModifiedDate" ColumnName="ModifiedDate" />
+          <ScalarProperty Name="CreatedDate" ColumnName="CreatedDate" />
+          <ScalarProperty Name="CreatedBy" ColumnName="CreatedBy" />
+          <ScalarProperty Name="ModifiedBy" ColumnName="ModifiedBy" />
+          <ScalarProperty Name="PlanningSalaryBand" ColumnName="PlanningSalaryBand" />
+          <ScalarProperty Name="FullTimeEquivalencyPercentage" ColumnName="FullTimeEquivalencyPercentage" />
+          <ScalarProperty Name="EmploymentPercentage" ColumnName="EmploymentPercentage" />
+          <ScalarProperty Name="PlanningSalary" ColumnName="PlanningSalary" />
+          <ScalarProperty Name="PlannedEndDate" ColumnName="PlannedEndDate" />
+          <ScalarProperty Name="PlannedStartDate" ColumnName="PlannedStartDate" />
+          <ScalarProperty Name="IsCriticalSkill" ColumnName="IsCriticalSkill" />
+          <ScalarProperty Name="DoesCountAsHeadCount" ColumnName="DoesCountAsHeadCount" />
+          <ScalarProperty Name="HardToRecruit" ColumnName="HardToRecruit" />
+          <ScalarProperty Name="OvertimeExempt" ColumnName="OvertimeExempt" />
+          <ScalarProperty Name="PayScaleLevelMax" ColumnName="PayScaleLevelMax" />
+          <ScalarProperty Name="PayScaleLevelMin" ColumnName="PayScaleLevelMin" />
+          <ScalarProperty Name="PayScaleGroupMax" ColumnName="PayScaleGroupMax" />
+          <ScalarProperty Name="PayScaleGroupMin" ColumnName="PayScaleGroupMin" />
+          <ScalarProperty Name="Number" ColumnName="Number" />
+          <ScalarProperty Name="Title" ColumnName="Title" />
+          <ScalarProperty Name="EmployeeNumber" ColumnName="EmployeeNumber" />
+          <ScalarProperty Name="WorkScheduleId" ColumnName="WorkScheduleId" />
+          <ScalarProperty Name="PayScaleTypeId" ColumnName="PayScaleTypeId" />
+          <ScalarProperty Name="PersonnelSubAreaId" ColumnName="PersonnelSubAreaId" />
+          <ScalarProperty Name="EmploymentTypeId" ColumnName="EmploymentTypeId" />
+          <ScalarProperty Name="SubGroupId" ColumnName="SubGroupId" />
+          <ScalarProperty Name="WorkLocationId" ColumnName="WorkLocationId" />
+          <ScalarProperty Name="LocationId" ColumnName="LocationId" />
+          <ScalarProperty Name="FlowToCostCentreId" ColumnName="FlowToCostCentreId" />
+          <ScalarProperty Name="HomeCostCentreId" ColumnName="HomeCostCentreId" />
+          <ScalarProperty Name="CostCentreId" ColumnName="CostCentreId" />
+          <ScalarProperty Name="GoaId" ColumnName="GoaId" />
+          <ScalarProperty Name="JobFamilyId" ColumnName="JobFamilyId" />
+          <ScalarProperty Name="JobId" ColumnName="JobId" />
+          <ScalarProperty Name="ManagingPositionNumber" ColumnName="ManagingPositionNumber" />
+          <ScalarProperty Name="PositionDataSetId" ColumnName="PositionDataSetId" />
+          <ScalarProperty Name="Id" ColumnName="Id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Tasks">
+      <EntityTypeMapping TypeName="WorkforcePlanningModel.Task">
+        <MappingFragment StoreEntitySet="Task">
+          <ScalarProperty Name="CreatedDate" ColumnName="CreatedDate" />
+          <ScalarProperty Name="CreatedBy" ColumnName="CreatedBy" />
+          <ScalarProperty Name="EffectiveToDate" ColumnName="EffectiveToDate" />
+          <ScalarProperty Name="EffectiveFromDate" ColumnName="EffectiveFromDate" />
+          <ScalarProperty Name="Comments" ColumnName="Comments" />
+          <ScalarProperty Name="TaskStatusDate" ColumnName="TaskStatusDate" />
+          <ScalarProperty Name="Number" ColumnName="Number" />
+          <ScalarProperty Name="TaskStatusId" ColumnName="TaskStatusId" />
+          <ScalarProperty Name="PositionRevisionId" ColumnName="PositionRevisionId" />
+          <ScalarProperty Name="AssignedToUserId" ColumnName="AssignedToUserId" />
+          <ScalarProperty Name="TaskDefinitionDetailId" ColumnName="TaskDefinitionDetailId" />
+          <ScalarProperty Name="Id" ColumnName="Id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="TaskDefinitions">
+      <EntityTypeMapping TypeName="WorkforcePlanningModel.TaskDefinition">
+        <MappingFragment StoreEntitySet="TaskDefinition">
+          <ScalarProperty Name="ModifiedDate" ColumnName="ModifiedDate" />
+          <ScalarProperty Name="ModifiedBy" ColumnName="ModifiedBy" />
+          <ScalarProperty Name="CreatedDate" ColumnName="CreatedDate" />
+          <ScalarProperty Name="CreatedBy" ColumnName="CreatedBy" />
+          <ScalarProperty Name="IsActive" ColumnName="IsActive" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="Id" ColumnName="Id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="TaskDefinitionDetails">
+      <EntityTypeMapping TypeName="WorkforcePlanningModel.TaskDefinitionDetail">
+        <MappingFragment StoreEntitySet="TaskDefinitionDetail">
+          <ScalarProperty Name="ModifiedDate" ColumnName="ModifiedDate" />
+          <ScalarProperty Name="ModifiedBy" ColumnName="ModifiedBy" />
+          <ScalarProperty Name="CreatedDate" ColumnName="CreatedDate" />
+          <ScalarProperty Name="CreatedBy" ColumnName="CreatedBy" />
+          <ScalarProperty Name="IsActive" ColumnName="IsActive" />
+          <ScalarProperty Name="Sequence" ColumnName="Sequence" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="TaskDefinitionID" ColumnName="TaskDefinitionID" />
+          <ScalarProperty Name="Id" ColumnName="Id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="TaskStatus">
+      <EntityTypeMapping TypeName="WorkforcePlanningModel.TaskStatu">
+        <MappingFragment StoreEntitySet="TaskStatus">
+          <ScalarProperty Name="ModifiedDate" ColumnName="ModifiedDate" />
+          <ScalarProperty Name="ModifiedBy" ColumnName="ModifiedBy" />
+          <ScalarProperty Name="CreatedDate" ColumnName="CreatedDate" />
+          <ScalarProperty Name="CreatedBy" ColumnName="CreatedBy" />
+          <ScalarProperty Name="IsActive" ColumnName="IsActive" />
+          <ScalarProperty Name="Description" ColumnName="Description" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="Id" ColumnName="Id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="TaskTypes">
+      <EntityTypeMapping TypeName="WorkforcePlanningModel.TaskType">
+        <MappingFragment StoreEntitySet="TaskType">
+          <ScalarProperty Name="EffectiveToDate" ColumnName="EffectiveToDate" />
+          <ScalarProperty Name="EffectiveFromDate" ColumnName="EffectiveFromDate" />
+          <ScalarProperty Name="ModifiedDate" ColumnName="ModifiedDate" />
+          <ScalarProperty Name="CreatedDate" ColumnName="CreatedDate" />
+          <ScalarProperty Name="CreatedBy" ColumnName="CreatedBy" />
+          <ScalarProperty Name="ModifiedBy" ColumnName="ModifiedBy" />
+          <ScalarProperty Name="IsActive" ColumnName="IsActive" />
+          <ScalarProperty Name="Description" ColumnName="Description" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="Id" ColumnName="Id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Users">
+      <EntityTypeMapping TypeName="WorkforcePlanningModel.User">
+        <MappingFragment StoreEntitySet="User">
+          <ScalarProperty Name="ModifiedDate" ColumnName="ModifiedDate" />
+          <ScalarProperty Name="ModifiedBy" ColumnName="ModifiedBy" />
+          <ScalarProperty Name="CreatedDate" ColumnName="CreatedDate" />
+          <ScalarProperty Name="CreatedBy" ColumnName="CreatedBy" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="UserId" ColumnName="UserId" />
+          <ScalarProperty Name="Id" ColumnName="Id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+  </EntityContainerMapping>
+</Mapping>

@@ -1,0 +1,204 @@
+﻿@using WorkforcePlanning.Core.Views.App_Helpers
+@model src.Models.PositionViewModel
+
+<h1 class="page-title txt-color-blueDark">
+    <i class="fa-fw fa fa-user"></i>
+    Positions
+    <span>
+        >
+        All Positions
+    </span>
+    <span>
+        >
+        @Model.Position.DisplayName
+    </span>
+</h1>
+
+<div class="container well">
+    <div class="row">
+        <div>
+            <h3>@Model.Position.Title</h3>
+        </div>
+    </div>
+    <div class="row">
+        @Html.Label("Position Number: ", 3)
+        @Html.Value(Model.Position.Number, 9)
+
+    </div>
+    <div class="row">
+        @Html.Label("Employee Name: ", 3)
+        @Html.Value(!Model.Position.IsFilled ? "Position is not currently filled" : Model.Position.Employee.FullName, 9)
+    </div>
+    <hr />
+
+
+
+        <div class="labelRow">
+            <div class="row">
+                @Html.Label("Managing Position", 3)
+                @Html.Label("Numberof Reports", 3)
+            </div>
+            <div class="row">
+                @Html.Value(Model.Position.ManagingPosition == null ? "Not Defined" : Model.Position.ManagingPosition.Title, 3)
+                @Html.Value((Model.Position.DirectReports == null || Model.Position.DirectReports.Count == 0) ? "0" : Model.Position.DirectReports.Count.ToString(), 3)
+            </div>
+        </div>
+        <div class="labelRow">
+            <div class="row">
+                @Html.Label("Planned Start Date", 3)
+                @Html.Label("Planned End Date", 3)
+                @Html.Label("Planned Salary", 3)
+                @Html.Label("Planned Salery Band", 3)
+            </div>
+            <div class="row">
+                @Html.Value(Model.PlannedStartDate, 3)
+                @Html.Value(Model.PlannedEndDate, 3)
+                @Html.Currency(Model.Position.PlanningSalary, 3)
+                @Html.Value(Model.Position.PlanningSalaryBand.ToString(), 3)
+            </div>
+        </div>
+            
+ 
+
+<div role="tabpanel">
+    <ul class="nav nav-tabs" role="tablist" id="tabContainer">
+        <li role="presentation" class="active"><a data-toggle="tab" href="#pnlPositionDetails">Position Details</a></li>
+        <li role="presentation"><a data-toggle="tab" href="#pnlCostCenters">Cost Centers</a></li>
+        <li role="presentation"><a data-toggle="tab" href="#pnlEmployeeInfo">Employee Info</a></li>
+        <li role="presentation"><a data-toggle="tab" href="#pnlManagerInfo">Managers</a></li>
+        <li role="presentation"><a data-toggle="tab" href="#pnlDirectReports">Direct Reports</a></li>
+        <li role="presentation"><a data-toggle="tab" href="#pnlPositionHistory">Position History</a></li>
+    </ul>
+
+    <div class="tab-content">
+        <div id="pnlPositionDetails" class="tab-pane fade in active">
+            <h3>Position Details</h3>
+            <div class="labelRow">
+                <div class="row">
+                    @Html.Label("Headcount", 3)
+                    @Html.Label("Critical Skill", 3)
+                    @Html.Label("Hard to Recruit", 3)
+                    @Html.Label("Overtime Exempt", 3)
+                </div>
+                <div class="row">
+                    <div class="col-md-3">
+                        @Html.YesNoReadonly(Model.Position.DoesCountAsHeadCount)
+                    </div>
+                    <div class="col-md-3">
+                        @Html.YesNoReadonly(Model.Position.IsCriticalSkill)
+                    </div>
+                    <div class="col-md-3">
+                        @Html.YesNoReadonly(Model.Position.HardToRecruit)
+                    </div>
+                    <div class="col-md-3">
+                        @Html.YesNoReadonly(Model.Position.OvertimeExempt)
+                    </div>
+                </div>
+            </div>
+        </div>
+         <div id="pnlCostCenters" class="tab-pane fade">
+            <h3>Cost Center Details</h3>
+        </div>
+        <div id="pnlEmployeeInfo" class="tab-pane fade">
+            <h3>Employee Info</h3>
+            @if (!Model.Position.IsFilled)
+            {
+
+                <span>Position is not currently filled</span>
+
+            }
+            else
+            {
+                <div class="row">
+                    @Html.Label("Name", 4)
+                    @Html.Label("Employee Number", 4)
+                    @Html.Label("Gender", 4)
+                </div>
+                <div class="row">
+                    @Html.Value(Model.Position.Employee.FullName, 4)
+                    @Html.Value(Model.Position.Employee.Number, 4)
+                    @Html.Value(Model.Position.Employee.Gender.ToString(), 4)
+                </div>
+
+                <div class="row top-margin-default">
+                    @Html.Label("Birth Date", 4)
+                    @Html.Label("Start Date", 4)
+                    @Html.Label("First Working Date", 4)
+                </div>
+                <div class="row">
+                    @Html.Value(Model.Position.Employee.BirthDate.ToShortDateString(), 4)
+                    @Html.Value(Model.Position.Employee.StartDate.ToShortDateString(), 4)
+                    @Html.Value(Model.Position.Employee.FirstWorkingDate.ToShortDateString(), 4)
+                </div>
+            }
+        </div>
+
+        <div id="pnlManagerInfo" class="tab-pane fade">
+            <h3>Managing Postions</h3>
+        </div>
+
+        <div id="pnlDirectReports" class="tab-pane fade">
+            <h3>Direct Reports</h3>
+            @if (Model.Position.DirectReports == null || Model.Position.DirectReports.Count <= 0)
+            {
+                @Html.Value("Position does not have any direct reports", 12)
+            }
+            else
+            {
+                foreach (var report in Model.Position.DirectReports)
+                {
+
+                    <div class="panel panel-default">
+                        <div class="panel-heading"> @string.Format("{0} - {1}", report.Number, report.Title)</div>
+                        <div class="panel-body">
+                            @string.Format("Held By: {0}", report.Employee == null ? string.Empty : report.Employee.FullName)
+                        </div>
+                       
+                    </div>                                        
+                }
+            }
+        </div>
+        <div id="pnlPositionHistory" class="tab-pane fade">
+            <h3>Revision History</h3>
+            @if(Model.Position.PositionRevisions == null || Model.Position.PositionRevisions.Count <= 0)
+            {
+                @Html.Value("No revisions have been made for this position", 12)
+
+            }
+            else
+            {
+                <div class="row">
+                    <div class="col-md-1">
+                        
+                    </div>
+                    <div class="col-md-3">
+                        Change Date
+                    </div>
+                    <div class="col-md-3">
+                        Changed By
+                    </div>
+                    <div class="col-md-3">
+                        Current Status
+                    </div>
+                    <div class="col-md-2">
+                        
+                    </div>
+                </div>
+                foreach (var revision in Model.Position.PositionRevisions)
+                {
+                    <div class="row">
+                        <div class="col-md-1">
+                            <i class="fa fa-info"></i>
+                        </div>
+                        @Html.Value(revision.CreatedDate.ToString(), 3)
+                        @Html.Value(revision.CreatedBy, 3)
+                        @Html.Value("To Be Implemented", 3)
+                        @Html.ActionLink("View Details", "PositionRevision", new {id = revision.Id})
+                    </div>
+
+                }
+            }
+        </div>
+    </div>
+</div>
+</div>

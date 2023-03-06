@@ -1,0 +1,61 @@
+﻿@model src.Models.ViewModelBase
+
+@using System.Web.Mvc.Html
+@using WorkforcePlanning.Core.Views.App_Helpers
+
+
+@{
+    ViewBag.Title = "Import Data";
+
+
+}
+
+
+
+<div class="container">
+    <div role="tabpanel">
+        <ul class="nav nav-tabs" role="tablist" id="tabContainer">
+            <li role="presentation" class="active"><a data-toggle="tab" href="#pnlSchedule">Schedules Uploads</a></li>
+            <li role="presentation"><a data-toggle="tab" href="#pnlManualUpload">Manual Upload</a></li>
+            <li role="presentation"><a data-toggle="tab" href="#pnlHistory">Upload History</a></li>
+
+        </ul>
+
+        <div class="tab-content">
+            <div id="pnlSchedule" class="tab-pane fade in active">
+                <h3>Scheduled Uploads</h3>
+            </div>
+            <div id="pnlManualUpload" class="tab-pane fade">
+                <h3>Manual Upload</h3>
+                @using (Html.BeginForm("UploadFile", "FileUpload", FormMethod.Post,
+                    new {enctype = "multipart/form-data"}))
+                {
+                    <div class="row">
+                        @Html.Label("Select a file to upload", 4)
+                        @Html.Upload("file", 8)
+                    </div>
+                    <div class="row">
+                        @Html.Label("Select the date the file is effective from", 4)
+                        @Html.TextDate(DateTime.Now.ToShortDateString(), "txtAsOfDate", 8)
+                    </div>
+                    <div class="row">
+                        @Html.Submit("Upload File", 10)
+                    </div>
+                }
+            </div>
+            <div id="pnlHistory" class="tab-pane fade">
+                <h3>Upload History</h3>
+
+            </div>
+        </div>
+    </div>
+</div>
+@section scripts{
+
+<script type="text/javascript">
+    $("[data-type='date']").datepicker({
+        orientation: "bottom right"
+    });
+</script>
+     
+}

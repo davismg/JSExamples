@@ -1,0 +1,987 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="WorkforcePlanningModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+  <EntityContainer Name="WorkforcePlanningEntities" annotation:LazyLoadingEnabled="true">
+    <EntitySet Name="CostCentres" EntityType="WorkforcePlanningModel.CostCentre" />
+    <EntitySet Name="DataSourceFileConfigurations" EntityType="WorkforcePlanningModel.DataSourceFileConfiguration" />
+    <EntitySet Name="Employees" EntityType="WorkforcePlanningModel.Employee" />
+    <EntitySet Name="EmployeeHistories" EntityType="WorkforcePlanningModel.EmployeeHistory" />
+    <EntitySet Name="EmploymentTypes" EntityType="WorkforcePlanningModel.EmploymentType" />
+    <EntitySet Name="Goas" EntityType="WorkforcePlanningModel.Goa" />
+    <EntitySet Name="Jobs" EntityType="WorkforcePlanningModel.Job" />
+    <EntitySet Name="JobFamilies" EntityType="WorkforcePlanningModel.JobFamily" />
+    <EntitySet Name="Locations" EntityType="WorkforcePlanningModel.Location" />
+    <EntitySet Name="LocationTypes" EntityType="WorkforcePlanningModel.LocationType" />
+    <EntitySet Name="PayScaleTypes" EntityType="WorkforcePlanningModel.PayScaleType" />
+    <EntitySet Name="PersonnelSubAreas" EntityType="WorkforcePlanningModel.PersonnelSubArea" />
+    <EntitySet Name="Positions" EntityType="WorkforcePlanningModel.Position" />
+    <EntitySet Name="PositionDataSets" EntityType="WorkforcePlanningModel.PositionDataSet" />
+    <EntitySet Name="PositionRevisions" EntityType="WorkforcePlanningModel.PositionRevision" />
+    <EntitySet Name="SourceFileColumnMappings" EntityType="WorkforcePlanningModel.SourceFileColumnMapping" />
+    <EntitySet Name="SubGroups" EntityType="WorkforcePlanningModel.SubGroup" />
+    <EntitySet Name="WorkSchedules" EntityType="WorkforcePlanningModel.WorkSchedule" />
+    <AssociationSet Name="FK_dbo_Position_dbo_CostCentre_CostCentreId" Association="WorkforcePlanningModel.FK_dbo_Position_dbo_CostCentre_CostCentreId">
+      <End Role="CostCentre" EntitySet="CostCentres" />
+      <End Role="Position" EntitySet="Positions" />
+    </AssociationSet>
+    <AssociationSet Name="FK_dbo_Position_dbo_CostCentre_FlowToCostCentreId" Association="WorkforcePlanningModel.FK_dbo_Position_dbo_CostCentre_FlowToCostCentreId">
+      <End Role="CostCentre" EntitySet="CostCentres" />
+      <End Role="Position" EntitySet="Positions" />
+    </AssociationSet>
+    <AssociationSet Name="FK_dbo_Position_dbo_CostCentre_HomeCostCentreId" Association="WorkforcePlanningModel.FK_dbo_Position_dbo_CostCentre_HomeCostCentreId">
+      <End Role="CostCentre" EntitySet="CostCentres" />
+      <End Role="Position" EntitySet="Positions" />
+    </AssociationSet>
+    <AssociationSet Name="FK_dbo_SourceFileColumnMappings_dbo_DataSourceFileConfigurations_DataSourceFileId" Association="WorkforcePlanningModel.FK_dbo_SourceFileColumnMappings_dbo_DataSourceFileConfigurations_DataSourceFileId">
+      <End Role="DataSourceFileConfiguration" EntitySet="DataSourceFileConfigurations" />
+      <End Role="SourceFileColumnMapping" EntitySet="SourceFileColumnMappings" />
+    </AssociationSet>
+    <AssociationSet Name="FK_dbo_Employee_dbo_EmploymentType_EmploymentTypeId" Association="WorkforcePlanningModel.FK_dbo_Employee_dbo_EmploymentType_EmploymentTypeId">
+      <End Role="EmploymentType" EntitySet="EmploymentTypes" />
+      <End Role="Employee" EntitySet="Employees" />
+    </AssociationSet>
+    <AssociationSet Name="FK_dbo_Employee_dbo_SubGroup_SubGroupId" Association="WorkforcePlanningModel.FK_dbo_Employee_dbo_SubGroup_SubGroupId">
+      <End Role="SubGroup" EntitySet="SubGroups" />
+      <End Role="Employee" EntitySet="Employees" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Employee_Employee" Association="WorkforcePlanningModel.FK_Employee_Employee">
+      <End Role="Employee" EntitySet="Employees" />
+      <End Role="Employee1" EntitySet="Employees" />
+    </AssociationSet>
+    <AssociationSet Name="FK_EmployeeHistory_Employee" Association="WorkforcePlanningModel.FK_EmployeeHistory_Employee">
+      <End Role="Employee" EntitySet="Employees" />
+      <End Role="EmployeeHistory" EntitySet="EmployeeHistories" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Position_Employee" Association="WorkforcePlanningModel.FK_Position_Employee">
+      <End Role="Employee" EntitySet="Employees" />
+      <End Role="Position" EntitySet="Positions" />
+    </AssociationSet>
+    <AssociationSet Name="FK_dbo_Position_dbo_EmploymentType_EmploymentTypeId" Association="WorkforcePlanningModel.FK_dbo_Position_dbo_EmploymentType_EmploymentTypeId">
+      <End Role="EmploymentType" EntitySet="EmploymentTypes" />
+      <End Role="Position" EntitySet="Positions" />
+    </AssociationSet>
+    <AssociationSet Name="FK_dbo_Position_dbo_Goa_GoaId" Association="WorkforcePlanningModel.FK_dbo_Position_dbo_Goa_GoaId">
+      <End Role="Goa" EntitySet="Goas" />
+      <End Role="Position" EntitySet="Positions" />
+    </AssociationSet>
+    <AssociationSet Name="FK_dbo_Position_dbo_Job_JobId" Association="WorkforcePlanningModel.FK_dbo_Position_dbo_Job_JobId">
+      <End Role="Job" EntitySet="Jobs" />
+      <End Role="Position" EntitySet="Positions" />
+    </AssociationSet>
+    <AssociationSet Name="FK_dbo_Position_dbo_JobFamily_JobFamilyId" Association="WorkforcePlanningModel.FK_dbo_Position_dbo_JobFamily_JobFamilyId">
+      <End Role="JobFamily" EntitySet="JobFamilies" />
+      <End Role="Position" EntitySet="Positions" />
+    </AssociationSet>
+    <AssociationSet Name="FK_dbo_Location_dbo_LocationType_LocationTypeId" Association="WorkforcePlanningModel.FK_dbo_Location_dbo_LocationType_LocationTypeId">
+      <End Role="LocationType" EntitySet="LocationTypes" />
+      <End Role="Location" EntitySet="Locations" />
+    </AssociationSet>
+    <AssociationSet Name="FK_dbo_Position_dbo_Location_LocationId" Association="WorkforcePlanningModel.FK_dbo_Position_dbo_Location_LocationId">
+      <End Role="Location" EntitySet="Locations" />
+      <End Role="Position" EntitySet="Positions" />
+    </AssociationSet>
+    <AssociationSet Name="FK_dbo_Position_dbo_Location_WorkLocationId" Association="WorkforcePlanningModel.FK_dbo_Position_dbo_Location_WorkLocationId">
+      <End Role="Location" EntitySet="Locations" />
+      <End Role="Position" EntitySet="Positions" />
+    </AssociationSet>
+    <AssociationSet Name="FK_dbo_Position_dbo_PayScaleType_PayScaleTypeId" Association="WorkforcePlanningModel.FK_dbo_Position_dbo_PayScaleType_PayScaleTypeId">
+      <End Role="PayScaleType" EntitySet="PayScaleTypes" />
+      <End Role="Position" EntitySet="Positions" />
+    </AssociationSet>
+    <AssociationSet Name="FK_dbo_Position_dbo_PersonnelSubArea_PersonnelSubAreaId" Association="WorkforcePlanningModel.FK_dbo_Position_dbo_PersonnelSubArea_PersonnelSubAreaId">
+      <End Role="PersonnelSubArea" EntitySet="PersonnelSubAreas" />
+      <End Role="Position" EntitySet="Positions" />
+    </AssociationSet>
+    <AssociationSet Name="FK_dbo_Position_dbo_PositionDataSets_PositionDataSetId" Association="WorkforcePlanningModel.FK_dbo_Position_dbo_PositionDataSets_PositionDataSetId">
+      <End Role="PositionDataSet" EntitySet="PositionDataSets" />
+      <End Role="Position" EntitySet="Positions" />
+    </AssociationSet>
+    <AssociationSet Name="FK_dbo_Position_dbo_SubGroup_SubGroupId" Association="WorkforcePlanningModel.FK_dbo_Position_dbo_SubGroup_SubGroupId">
+      <End Role="SubGroup" EntitySet="SubGroups" />
+      <End Role="Position" EntitySet="Positions" />
+    </AssociationSet>
+    <AssociationSet Name="FK_dbo_Position_dbo_WorkSchedule_WorkScheduleId" Association="WorkforcePlanningModel.FK_dbo_Position_dbo_WorkSchedule_WorkScheduleId">
+      <End Role="WorkSchedule" EntitySet="WorkSchedules" />
+      <End Role="Position" EntitySet="Positions" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Position_ManagingPosition" Association="WorkforcePlanningModel.FK_Position_ManagingPosition">
+      <End Role="Position" EntitySet="Positions" />
+      <End Role="Position1" EntitySet="Positions" />
+    </AssociationSet>
+    <AssociationSet Name="FK_PositionRevision_Position" Association="WorkforcePlanningModel.FK_PositionRevision_Position">
+      <End Role="Position" EntitySet="Positions" />
+      <End Role="PositionRevision" EntitySet="PositionRevisions" />
+    </AssociationSet>
+    <EntitySet Name="PositionHistories" EntityType="WorkforcePlanningModel.PositionHistory" />
+    <EntitySet Name="Tasks" EntityType="WorkforcePlanningModel.Task" />
+    <EntitySet Name="TaskDefinitions" EntityType="WorkforcePlanningModel.TaskDefinition" />
+    <EntitySet Name="TaskDefinitionDetails" EntityType="WorkforcePlanningModel.TaskDefinitionDetail" />
+    <EntitySet Name="TaskStatus" EntityType="WorkforcePlanningModel.TaskStatu" />
+    <EntitySet Name="TaskTypes" EntityType="WorkforcePlanningModel.TaskType" />
+    <EntitySet Name="Users" EntityType="WorkforcePlanningModel.User" />
+    <AssociationSet Name="FK_Task_PositionRevision" Association="WorkforcePlanningModel.FK_Task_PositionRevision">
+      <End Role="PositionRevision" EntitySet="PositionRevisions" />
+      <End Role="Task" EntitySet="Tasks" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Task_TaskDefinitionDetail" Association="WorkforcePlanningModel.FK_Task_TaskDefinitionDetail">
+      <End Role="TaskDefinitionDetail" EntitySet="TaskDefinitionDetails" />
+      <End Role="Task" EntitySet="Tasks" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Task_TaskStatus" Association="WorkforcePlanningModel.FK_Task_TaskStatus">
+      <End Role="TaskStatu" EntitySet="TaskStatus" />
+      <End Role="Task" EntitySet="Tasks" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Task_User" Association="WorkforcePlanningModel.FK_Task_User">
+      <End Role="User" EntitySet="Users" />
+      <End Role="Task" EntitySet="Tasks" />
+    </AssociationSet>
+    <AssociationSet Name="FK_TaskDefinitionDetail_TaskDefinition" Association="WorkforcePlanningModel.FK_TaskDefinitionDetail_TaskDefinition">
+      <End Role="TaskDefinition" EntitySet="TaskDefinitions" />
+      <End Role="TaskDefinitionDetail" EntitySet="TaskDefinitionDetails" />
+    </AssociationSet>
+  </EntityContainer>
+  <EntityType Name="CostCentre">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Name" Type="String" Nullable="false" MaxLength="256" FixedLength="false" Unicode="true" />
+    <Property Name="Number" Type="String" Nullable="false" MaxLength="15" FixedLength="false" Unicode="true" />
+    <Property Name="ModifiedBy" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="CreatedBy" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="CreatedDate" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="ModifiedDate" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="EffectiveFromDate" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="EffectiveToDate" Type="DateTime" Precision="3" />
+    <NavigationProperty Name="Positions" Relationship="WorkforcePlanningModel.FK_dbo_Position_dbo_CostCentre_CostCentreId" FromRole="CostCentre" ToRole="Position" />
+    <NavigationProperty Name="FlowToCostCentrePositions" Relationship="WorkforcePlanningModel.FK_dbo_Position_dbo_CostCentre_FlowToCostCentreId" FromRole="CostCentre" ToRole="Position" />
+    <NavigationProperty Name="HomeCostCentrePositions" Relationship="WorkforcePlanningModel.FK_dbo_Position_dbo_CostCentre_HomeCostCentreId" FromRole="CostCentre" ToRole="Position" />
+  </EntityType>
+  <EntityType Name="DataSourceFileConfiguration">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="DataLoadLocation" Type="String" Nullable="false" MaxLength="2000" FixedLength="false" Unicode="true" />
+    <Property Name="SourceFileName" Type="String" Nullable="false" MaxLength="256" FixedLength="false" Unicode="true" />
+    <Property Name="FirstRowHasColumnNames" Type="Boolean" Nullable="false" />
+    <Property Name="ModifiedBy" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="CreatedBy" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="CreatedDate" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="ModifiedDate" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="EffectiveFromDate" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="EffectiveToDate" Type="DateTime" Precision="3" />
+    <NavigationProperty Name="SourceFileColumnMappings" Relationship="WorkforcePlanningModel.FK_dbo_SourceFileColumnMappings_dbo_DataSourceFileConfigurations_DataSourceFileId" FromRole="DataSourceFileConfiguration" ToRole="SourceFileColumnMapping" />
+  </EntityType>
+  <EntityType Name="Employee">
+    <Key>
+      <PropertyRef Name="Number" />
+    </Key>
+    <Property Name="Number" Type="String" Nullable="false" MaxLength="15" FixedLength="false" Unicode="true" />
+    <Property Name="SubGroupId" Type="Int32" />
+    <Property Name="EmploymentTypeId" Type="Int32" />
+    <Property Name="FirstName" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="LastName" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="BirthDate" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="StartDate" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="FirstWorkingDate" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="ProposedStartDate" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="ProposedEndDate" Type="DateTime" Precision="3" />
+    <Property Name="Gender" Type="String" Nullable="false" MaxLength="1" FixedLength="false" Unicode="true" />
+    <Property Name="CreatedBy" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="CreatedDate" Type="DateTime" Nullable="false" Precision="3" />
+    <NavigationProperty Name="EmploymentType" Relationship="WorkforcePlanningModel.FK_dbo_Employee_dbo_EmploymentType_EmploymentTypeId" FromRole="Employee" ToRole="EmploymentType" />
+    <NavigationProperty Name="SubGroup" Relationship="WorkforcePlanningModel.FK_dbo_Employee_dbo_SubGroup_SubGroupId" FromRole="Employee" ToRole="SubGroup" />
+    <NavigationProperty Name="Employee1" Relationship="WorkforcePlanningModel.FK_Employee_Employee" FromRole="Employee" ToRole="Employee1" />
+    <NavigationProperty Name="Employee2" Relationship="WorkforcePlanningModel.FK_Employee_Employee" FromRole="Employee1" ToRole="Employee" />
+    <NavigationProperty Name="EmployeeHistories" Relationship="WorkforcePlanningModel.FK_EmployeeHistory_Employee" FromRole="Employee" ToRole="EmployeeHistory" />
+    <NavigationProperty Name="Positions" Relationship="WorkforcePlanningModel.FK_Position_Employee" FromRole="Employee" ToRole="Position" />
+  </EntityType>
+  <EntityType Name="EmployeeHistory">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Number" Type="String" Nullable="false" MaxLength="15" FixedLength="false" Unicode="true" />
+    <Property Name="SubGroupId" Type="Int32" />
+    <Property Name="EmploymentTypeId" Type="Int32" />
+    <Property Name="FirstName" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="LastName" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="BirthDate" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="StartDate" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="FirstWorkingDate" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="ProposedStartDate" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="ProposedEndDate" Type="DateTime" Precision="3" />
+    <Property Name="Gender" Type="String" Nullable="false" MaxLength="1" FixedLength="false" Unicode="true" />
+    <Property Name="CreatedBy" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="CreatedDate" Type="DateTime" Nullable="false" Precision="3" />
+    <NavigationProperty Name="Employee" Relationship="WorkforcePlanningModel.FK_EmployeeHistory_Employee" FromRole="EmployeeHistory" ToRole="Employee" />
+  </EntityType>
+  <EntityType Name="EmploymentType">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Name" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="Description" Type="String" MaxLength="256" FixedLength="false" Unicode="true" />
+    <Property Name="IsActive" Type="String" MaxLength="1" FixedLength="false" Unicode="true" />
+    <Property Name="ModifiedBy" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="CreatedBy" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="CreatedDate" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="ModifiedDate" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="EffectiveFromDate" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="EffectiveToDate" Type="DateTime" Precision="3" />
+    <NavigationProperty Name="Employees" Relationship="WorkforcePlanningModel.FK_dbo_Employee_dbo_EmploymentType_EmploymentTypeId" FromRole="EmploymentType" ToRole="Employee" />
+    <NavigationProperty Name="Positions" Relationship="WorkforcePlanningModel.FK_dbo_Position_dbo_EmploymentType_EmploymentTypeId" FromRole="EmploymentType" ToRole="Position" />
+  </EntityType>
+  <EntityType Name="Goa">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Name" Type="String" Nullable="false" MaxLength="256" FixedLength="false" Unicode="true" />
+    <Property Name="Number" Type="String" Nullable="false" MaxLength="15" FixedLength="false" Unicode="true" />
+    <Property Name="ModifiedBy" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="CreatedBy" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="CreatedDate" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="ModifiedDate" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="EffectiveFromDate" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="EffectiveToDate" Type="DateTime" Precision="3" />
+    <NavigationProperty Name="Positions" Relationship="WorkforcePlanningModel.FK_dbo_Position_dbo_Goa_GoaId" FromRole="Goa" ToRole="Position" />
+  </EntityType>
+  <EntityType Name="Job">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Name" Type="String" Nullable="false" MaxLength="256" FixedLength="false" Unicode="true" />
+    <Property Name="Number" Type="String" Nullable="false" MaxLength="15" FixedLength="false" Unicode="true" />
+    <Property Name="ModifiedBy" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="CreatedBy" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="CreatedDate" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="ModifiedDate" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="EffectiveFromDate" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="EffectiveToDate" Type="DateTime" Precision="3" />
+    <NavigationProperty Name="Positions" Relationship="WorkforcePlanningModel.FK_dbo_Position_dbo_Job_JobId" FromRole="Job" ToRole="Position" />
+  </EntityType>
+  <EntityType Name="JobFamily">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Name" Type="String" Nullable="false" MaxLength="256" FixedLength="false" Unicode="true" />
+    <Property Name="Number" Type="String" Nullable="false" MaxLength="15" FixedLength="false" Unicode="true" />
+    <Property Name="ModifiedBy" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="CreatedBy" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="CreatedDate" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="ModifiedDate" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="EffectiveFromDate" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="EffectiveToDate" Type="DateTime" Precision="3" />
+    <NavigationProperty Name="Positions" Relationship="WorkforcePlanningModel.FK_dbo_Position_dbo_JobFamily_JobFamilyId" FromRole="JobFamily" ToRole="Position" />
+  </EntityType>
+  <EntityType Name="Location">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Name" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="Building" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="LocationTypeId" Type="Int32" Nullable="false" />
+    <Property Name="ModifiedBy" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="CreatedBy" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="CreatedDate" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="ModifiedDate" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="EffectiveFromDate" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="EffectiveToDate" Type="DateTime" Precision="3" />
+    <NavigationProperty Name="LocationType" Relationship="WorkforcePlanningModel.FK_dbo_Location_dbo_LocationType_LocationTypeId" FromRole="Location" ToRole="LocationType" />
+    <NavigationProperty Name="Positions" Relationship="WorkforcePlanningModel.FK_dbo_Position_dbo_Location_LocationId" FromRole="Location" ToRole="Position" />
+    <NavigationProperty Name="WorkLocationPositions" Relationship="WorkforcePlanningModel.FK_dbo_Position_dbo_Location_WorkLocationId" FromRole="Location" ToRole="Position" />
+  </EntityType>
+  <EntityType Name="LocationType">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Name" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="Description" Type="String" MaxLength="256" FixedLength="false" Unicode="true" />
+    <Property Name="IsActive" Type="String" MaxLength="1" FixedLength="false" Unicode="true" />
+    <Property Name="ModifiedBy" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="CreatedBy" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="CreatedDate" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="ModifiedDate" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="EffectiveFromDate" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="EffectiveToDate" Type="DateTime" Precision="3" />
+    <NavigationProperty Name="Locations" Relationship="WorkforcePlanningModel.FK_dbo_Location_dbo_LocationType_LocationTypeId" FromRole="LocationType" ToRole="Location" />
+  </EntityType>
+  <EntityType Name="PayScaleType">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Name" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="Description" Type="String" MaxLength="256" FixedLength="false" Unicode="true" />
+    <Property Name="IsActive" Type="String" MaxLength="1" FixedLength="false" Unicode="true" />
+    <Property Name="ModifiedBy" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="CreatedBy" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="CreatedDate" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="ModifiedDate" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="EffectiveFromDate" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="EffectiveToDate" Type="DateTime" Precision="3" />
+    <NavigationProperty Name="Positions" Relationship="WorkforcePlanningModel.FK_dbo_Position_dbo_PayScaleType_PayScaleTypeId" FromRole="PayScaleType" ToRole="Position" />
+  </EntityType>
+  <EntityType Name="PersonnelSubArea">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Name" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="Description" Type="String" MaxLength="256" FixedLength="false" Unicode="true" />
+    <Property Name="IsActive" Type="String" MaxLength="1" FixedLength="false" Unicode="true" />
+    <Property Name="ModifiedBy" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="CreatedBy" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="CreatedDate" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="ModifiedDate" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="EffectiveFromDate" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="EffectiveToDate" Type="DateTime" Precision="3" />
+    <NavigationProperty Name="Positions" Relationship="WorkforcePlanningModel.FK_dbo_Position_dbo_PersonnelSubArea_PersonnelSubAreaId" FromRole="PersonnelSubArea" ToRole="Position" />
+  </EntityType>
+  <EntityType Name="Position">
+    <Key>
+      <PropertyRef Name="Number" />
+    </Key>
+    <Property Name="Number" Type="String" Nullable="false" MaxLength="15" FixedLength="false" Unicode="true" />
+    <Property Name="PositionDataSetId" Type="Int32" Nullable="false" />
+    <Property Name="ManagingPositionNumber" Type="String" MaxLength="15" FixedLength="false" Unicode="true" />
+    <Property Name="EmployeeNumber" Type="String" MaxLength="15" FixedLength="false" Unicode="true" />
+    <Property Name="JobId" Type="Int32" />
+    <Property Name="JobFamilyId" Type="Int32" />
+    <Property Name="GoaId" Type="Int32" />
+    <Property Name="CostCentreId" Type="Int32" />
+    <Property Name="HomeCostCentreId" Type="Int32" />
+    <Property Name="FlowToCostCentreId" Type="Int32" />
+    <Property Name="LocationId" Type="Int32" />
+    <Property Name="WorkLocationId" Type="Int32" />
+    <Property Name="SubGroupId" Type="Int32" />
+    <Property Name="EmploymentTypeId" Type="Int32" />
+    <Property Name="PersonnelSubAreaId" Type="Int32" />
+    <Property Name="PayScaleTypeId" Type="Int32" />
+    <Property Name="WorkScheduleId" Type="Int32" />
+    <Property Name="Title" Type="String" Nullable="false" MaxLength="256" FixedLength="false" Unicode="true" />
+    <Property Name="PayScaleGroupMin" Type="String" MaxLength="10" FixedLength="false" Unicode="true" />
+    <Property Name="PayScaleGroupMax" Type="String" MaxLength="10" FixedLength="false" Unicode="true" />
+    <Property Name="PayScaleLevelMin" Type="String" MaxLength="10" FixedLength="false" Unicode="true" />
+    <Property Name="PayScaleLevelMax" Type="String" MaxLength="10" FixedLength="false" Unicode="true" />
+    <Property Name="OvertimeExempt" Type="Boolean" Nullable="false" />
+    <Property Name="HardToRecruit" Type="Boolean" Nullable="false" />
+    <Property Name="DoesCountAsHeadCount" Type="Boolean" Nullable="false" />
+    <Property Name="IsCriticalSkill" Type="Boolean" Nullable="false" />
+    <Property Name="PlannedStartDate" Type="DateTime" Precision="3" />
+    <Property Name="PlannedEndDate" Type="DateTime" Precision="3" />
+    <Property Name="PlanningSalary" Type="Decimal" Nullable="false" Precision="18" Scale="2" />
+    <Property Name="EmploymentPercentage" Type="Decimal" Nullable="false" Precision="18" Scale="2" />
+    <Property Name="FullTimeEquivalencyPercentage" Type="Decimal" Nullable="false" Precision="18" Scale="2" />
+    <Property Name="PlanningSalaryBand" Type="Int32" />
+    <Property Name="CreatedBy" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="CreatedDate" Type="DateTime" Nullable="false" Precision="3" />
+    <NavigationProperty Name="CostCentre" Relationship="WorkforcePlanningModel.FK_dbo_Position_dbo_CostCentre_CostCentreId" FromRole="Position" ToRole="CostCentre" />
+    <NavigationProperty Name="FlowToCostCentre" Relationship="WorkforcePlanningModel.FK_dbo_Position_dbo_CostCentre_FlowToCostCentreId" FromRole="Position" ToRole="CostCentre" />
+    <NavigationProperty Name="HomeCostCentre" Relationship="WorkforcePlanningModel.FK_dbo_Position_dbo_CostCentre_HomeCostCentreId" FromRole="Position" ToRole="CostCentre" />
+    <NavigationProperty Name="Employee" Relationship="WorkforcePlanningModel.FK_Position_Employee" FromRole="Position" ToRole="Employee" />
+    <NavigationProperty Name="EmploymentType" Relationship="WorkforcePlanningModel.FK_dbo_Position_dbo_EmploymentType_EmploymentTypeId" FromRole="Position" ToRole="EmploymentType" />
+    <NavigationProperty Name="Goa" Relationship="WorkforcePlanningModel.FK_dbo_Position_dbo_Goa_GoaId" FromRole="Position" ToRole="Goa" />
+    <NavigationProperty Name="Job" Relationship="WorkforcePlanningModel.FK_dbo_Position_dbo_Job_JobId" FromRole="Position" ToRole="Job" />
+    <NavigationProperty Name="JobFamily" Relationship="WorkforcePlanningModel.FK_dbo_Position_dbo_JobFamily_JobFamilyId" FromRole="Position" ToRole="JobFamily" />
+    <NavigationProperty Name="Location" Relationship="WorkforcePlanningModel.FK_dbo_Position_dbo_Location_LocationId" FromRole="Position" ToRole="Location" />
+    <NavigationProperty Name="WorkLocation" Relationship="WorkforcePlanningModel.FK_dbo_Position_dbo_Location_WorkLocationId" FromRole="Position" ToRole="Location" />
+    <NavigationProperty Name="PayScaleType" Relationship="WorkforcePlanningModel.FK_dbo_Position_dbo_PayScaleType_PayScaleTypeId" FromRole="Position" ToRole="PayScaleType" />
+    <NavigationProperty Name="PersonnelSubArea" Relationship="WorkforcePlanningModel.FK_dbo_Position_dbo_PersonnelSubArea_PersonnelSubAreaId" FromRole="Position" ToRole="PersonnelSubArea" />
+    <NavigationProperty Name="PositionDataSet" Relationship="WorkforcePlanningModel.FK_dbo_Position_dbo_PositionDataSets_PositionDataSetId" FromRole="Position" ToRole="PositionDataSet" />
+    <NavigationProperty Name="SubGroup" Relationship="WorkforcePlanningModel.FK_dbo_Position_dbo_SubGroup_SubGroupId" FromRole="Position" ToRole="SubGroup" />
+    <NavigationProperty Name="WorkSchedule" Relationship="WorkforcePlanningModel.FK_dbo_Position_dbo_WorkSchedule_WorkScheduleId" FromRole="Position" ToRole="WorkSchedule" />
+    <NavigationProperty Name="DirectReports" Relationship="WorkforcePlanningModel.FK_Position_ManagingPosition" FromRole="Position" ToRole="Position1" />
+    <NavigationProperty Name="ManagingPosition" Relationship="WorkforcePlanningModel.FK_Position_ManagingPosition" FromRole="Position1" ToRole="Position" />
+    <NavigationProperty Name="PositionRevisions" Relationship="WorkforcePlanningModel.FK_PositionRevision_Position" FromRole="Position" ToRole="PositionRevision" />
+  </EntityType>
+  <EntityType Name="PositionDataSet">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="AsOfDate" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="ModifiedBy" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="CreatedBy" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="CreatedDate" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="ModifiedDate" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="EffectiveFromDate" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="EffectiveToDate" Type="DateTime" Precision="3" />
+    <NavigationProperty Name="Positions" Relationship="WorkforcePlanningModel.FK_dbo_Position_dbo_PositionDataSets_PositionDataSetId" FromRole="PositionDataSet" ToRole="Position" />
+  </EntityType>
+  <EntityType Name="PositionRevision">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Number" Type="String" Nullable="false" MaxLength="15" FixedLength="false" Unicode="true" />
+    <Property Name="ManagingPositionNumber" Type="String" MaxLength="15" FixedLength="false" Unicode="true" />
+    <Property Name="EmployeeNumber" Type="String" MaxLength="15" FixedLength="false" Unicode="true" />
+    <Property Name="JobId" Type="Int32" />
+    <Property Name="JobFamilyId" Type="Int32" />
+    <Property Name="GoaId" Type="Int32" />
+    <Property Name="CostCentreId" Type="Int32" />
+    <Property Name="HomeCostCentreId" Type="Int32" />
+    <Property Name="FlowToCostCentreId" Type="Int32" />
+    <Property Name="LocationId" Type="Int32" />
+    <Property Name="WorkLocationId" Type="Int32" />
+    <Property Name="SubGroupId" Type="Int32" />
+    <Property Name="EmploymentTypeId" Type="Int32" />
+    <Property Name="PersonnelSubAreaId" Type="Int32" />
+    <Property Name="PayScaleTypeId" Type="Int32" />
+    <Property Name="WorkScheduleId" Type="Int32" />
+    <Property Name="Title" Type="String" Nullable="false" MaxLength="256" FixedLength="false" Unicode="true" />
+    <Property Name="PayScaleGroupMin" Type="String" MaxLength="10" FixedLength="false" Unicode="true" />
+    <Property Name="PayScaleGroupMax" Type="String" MaxLength="10" FixedLength="false" Unicode="true" />
+    <Property Name="PayScaleLevelMin" Type="String" MaxLength="10" FixedLength="false" Unicode="true" />
+    <Property Name="PayScaleLevelMax" Type="String" MaxLength="10" FixedLength="false" Unicode="true" />
+    <Property Name="OvertimeExempt" Type="Boolean" Nullable="false" />
+    <Property Name="HardToRecruit" Type="Boolean" Nullable="false" />
+    <Property Name="DoesCountAsHeadCount" Type="Boolean" Nullable="false" />
+    <Property Name="IsCriticalSkill" Type="Boolean" Nullable="false" />
+    <Property Name="PlannedStartDate" Type="DateTime" Precision="3" />
+    <Property Name="PlannedEndDate" Type="DateTime" Precision="3" />
+    <Property Name="PlanningSalary" Type="Decimal" Nullable="false" Precision="18" Scale="2" />
+    <Property Name="EmploymentPercentage" Type="Decimal" Nullable="false" Precision="18" Scale="2" />
+    <Property Name="FullTimeEquivalencyPercentage" Type="Decimal" Nullable="false" Precision="18" Scale="2" />
+    <Property Name="PlanningSalaryBand" Type="Int32" />
+    <Property Name="CreatedBy" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="CreatedDate" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="ModifiedBy" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="ModifiedDate" Type="DateTime" Precision="3" />
+    <NavigationProperty Name="Position" Relationship="WorkforcePlanningModel.FK_PositionRevision_Position" FromRole="PositionRevision" ToRole="Position" />
+    <NavigationProperty Name="Tasks" Relationship="WorkforcePlanningModel.FK_Task_PositionRevision" FromRole="PositionRevision" ToRole="Task" />
+  </EntityType>
+  <EntityType Name="SourceFileColumnMapping">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="DataSourceFileId" Type="Int32" Nullable="false" />
+    <Property Name="FieldName" Type="String" Nullable="false" MaxLength="40" FixedLength="false" Unicode="true" />
+    <Property Name="ColumnIndex" Type="Int32" Nullable="false" />
+    <Property Name="ColumnLetter" Type="String" Nullable="false" MaxLength="2" FixedLength="false" Unicode="true" />
+    <Property Name="ModifiedBy" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="CreatedBy" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="CreatedDate" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="ModifiedDate" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="EffectiveFromDate" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="EffectiveToDate" Type="DateTime" Precision="3" />
+    <NavigationProperty Name="DataSourceFileConfiguration" Relationship="WorkforcePlanningModel.FK_dbo_SourceFileColumnMappings_dbo_DataSourceFileConfigurations_DataSourceFileId" FromRole="SourceFileColumnMapping" ToRole="DataSourceFileConfiguration" />
+  </EntityType>
+  <EntityType Name="SubGroup">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Name" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="Description" Type="String" MaxLength="256" FixedLength="false" Unicode="true" />
+    <Property Name="IsActive" Type="String" MaxLength="1" FixedLength="false" Unicode="true" />
+    <Property Name="ModifiedBy" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="CreatedBy" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="CreatedDate" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="ModifiedDate" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="EffectiveFromDate" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="EffectiveToDate" Type="DateTime" Precision="3" />
+    <NavigationProperty Name="Employees" Relationship="WorkforcePlanningModel.FK_dbo_Employee_dbo_SubGroup_SubGroupId" FromRole="SubGroup" ToRole="Employee" />
+    <NavigationProperty Name="Positions" Relationship="WorkforcePlanningModel.FK_dbo_Position_dbo_SubGroup_SubGroupId" FromRole="SubGroup" ToRole="Position" />
+  </EntityType>
+  <EntityType Name="WorkSchedule">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Name" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="Description" Type="String" MaxLength="256" FixedLength="false" Unicode="true" />
+    <Property Name="IsActive" Type="String" MaxLength="1" FixedLength="false" Unicode="true" />
+    <Property Name="ModifiedBy" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="CreatedBy" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="CreatedDate" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="ModifiedDate" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="EffectiveFromDate" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="EffectiveToDate" Type="DateTime" Precision="3" />
+    <NavigationProperty Name="Positions" Relationship="WorkforcePlanningModel.FK_dbo_Position_dbo_WorkSchedule_WorkScheduleId" FromRole="WorkSchedule" ToRole="Position" />
+  </EntityType>
+  <Association Name="FK_dbo_Position_dbo_CostCentre_CostCentreId">
+    <End Type="WorkforcePlanningModel.CostCentre" Role="CostCentre" Multiplicity="0..1" />
+    <End Type="WorkforcePlanningModel.Position" Role="Position" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="CostCentre">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Position">
+        <PropertyRef Name="CostCentreId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_dbo_Position_dbo_CostCentre_FlowToCostCentreId">
+    <End Type="WorkforcePlanningModel.CostCentre" Role="CostCentre" Multiplicity="0..1" />
+    <End Type="WorkforcePlanningModel.Position" Role="Position" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="CostCentre">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Position">
+        <PropertyRef Name="FlowToCostCentreId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_dbo_Position_dbo_CostCentre_HomeCostCentreId">
+    <End Type="WorkforcePlanningModel.CostCentre" Role="CostCentre" Multiplicity="0..1" />
+    <End Type="WorkforcePlanningModel.Position" Role="Position" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="CostCentre">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Position">
+        <PropertyRef Name="HomeCostCentreId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_dbo_SourceFileColumnMappings_dbo_DataSourceFileConfigurations_DataSourceFileId">
+    <End Type="WorkforcePlanningModel.DataSourceFileConfiguration" Role="DataSourceFileConfiguration" Multiplicity="1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Type="WorkforcePlanningModel.SourceFileColumnMapping" Role="SourceFileColumnMapping" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="DataSourceFileConfiguration">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="SourceFileColumnMapping">
+        <PropertyRef Name="DataSourceFileId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_dbo_Employee_dbo_EmploymentType_EmploymentTypeId">
+    <End Type="WorkforcePlanningModel.EmploymentType" Role="EmploymentType" Multiplicity="0..1" />
+    <End Type="WorkforcePlanningModel.Employee" Role="Employee" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="EmploymentType">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Employee">
+        <PropertyRef Name="EmploymentTypeId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_dbo_Employee_dbo_SubGroup_SubGroupId">
+    <End Type="WorkforcePlanningModel.SubGroup" Role="SubGroup" Multiplicity="0..1" />
+    <End Type="WorkforcePlanningModel.Employee" Role="Employee" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="SubGroup">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Employee">
+        <PropertyRef Name="SubGroupId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Employee_Employee">
+    <End Type="WorkforcePlanningModel.Employee" Role="Employee" Multiplicity="1" />
+    <End Type="WorkforcePlanningModel.Employee" Role="Employee1" Multiplicity="0..1" />
+    <ReferentialConstraint>
+      <Principal Role="Employee">
+        <PropertyRef Name="Number" />
+      </Principal>
+      <Dependent Role="Employee1">
+        <PropertyRef Name="Number" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_EmployeeHistory_Employee">
+    <End Type="WorkforcePlanningModel.Employee" Role="Employee" Multiplicity="1" />
+    <End Type="WorkforcePlanningModel.EmployeeHistory" Role="EmployeeHistory" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Employee">
+        <PropertyRef Name="Number" />
+      </Principal>
+      <Dependent Role="EmployeeHistory">
+        <PropertyRef Name="Number" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Position_Employee">
+    <End Type="WorkforcePlanningModel.Employee" Role="Employee" Multiplicity="0..1" />
+    <End Type="WorkforcePlanningModel.Position" Role="Position" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Employee">
+        <PropertyRef Name="Number" />
+      </Principal>
+      <Dependent Role="Position">
+        <PropertyRef Name="EmployeeNumber" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_dbo_Position_dbo_EmploymentType_EmploymentTypeId">
+    <End Type="WorkforcePlanningModel.EmploymentType" Role="EmploymentType" Multiplicity="0..1" />
+    <End Type="WorkforcePlanningModel.Position" Role="Position" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="EmploymentType">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Position">
+        <PropertyRef Name="EmploymentTypeId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_dbo_Position_dbo_Goa_GoaId">
+    <End Type="WorkforcePlanningModel.Goa" Role="Goa" Multiplicity="0..1" />
+    <End Type="WorkforcePlanningModel.Position" Role="Position" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Goa">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Position">
+        <PropertyRef Name="GoaId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_dbo_Position_dbo_Job_JobId">
+    <End Type="WorkforcePlanningModel.Job" Role="Job" Multiplicity="0..1" />
+    <End Type="WorkforcePlanningModel.Position" Role="Position" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Job">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Position">
+        <PropertyRef Name="JobId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_dbo_Position_dbo_JobFamily_JobFamilyId">
+    <End Type="WorkforcePlanningModel.JobFamily" Role="JobFamily" Multiplicity="0..1" />
+    <End Type="WorkforcePlanningModel.Position" Role="Position" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="JobFamily">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Position">
+        <PropertyRef Name="JobFamilyId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_dbo_Location_dbo_LocationType_LocationTypeId">
+    <End Type="WorkforcePlanningModel.LocationType" Role="LocationType" Multiplicity="1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Type="WorkforcePlanningModel.Location" Role="Location" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="LocationType">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Location">
+        <PropertyRef Name="LocationTypeId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_dbo_Position_dbo_Location_LocationId">
+    <End Type="WorkforcePlanningModel.Location" Role="Location" Multiplicity="0..1" />
+    <End Type="WorkforcePlanningModel.Position" Role="Position" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Location">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Position">
+        <PropertyRef Name="LocationId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_dbo_Position_dbo_Location_WorkLocationId">
+    <End Type="WorkforcePlanningModel.Location" Role="Location" Multiplicity="0..1" />
+    <End Type="WorkforcePlanningModel.Position" Role="Position" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Location">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Position">
+        <PropertyRef Name="WorkLocationId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_dbo_Position_dbo_PayScaleType_PayScaleTypeId">
+    <End Type="WorkforcePlanningModel.PayScaleType" Role="PayScaleType" Multiplicity="0..1" />
+    <End Type="WorkforcePlanningModel.Position" Role="Position" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="PayScaleType">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Position">
+        <PropertyRef Name="PayScaleTypeId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_dbo_Position_dbo_PersonnelSubArea_PersonnelSubAreaId">
+    <End Type="WorkforcePlanningModel.PersonnelSubArea" Role="PersonnelSubArea" Multiplicity="0..1" />
+    <End Type="WorkforcePlanningModel.Position" Role="Position" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="PersonnelSubArea">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Position">
+        <PropertyRef Name="PersonnelSubAreaId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_dbo_Position_dbo_PositionDataSets_PositionDataSetId">
+    <End Type="WorkforcePlanningModel.PositionDataSet" Role="PositionDataSet" Multiplicity="1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Type="WorkforcePlanningModel.Position" Role="Position" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="PositionDataSet">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Position">
+        <PropertyRef Name="PositionDataSetId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_dbo_Position_dbo_SubGroup_SubGroupId">
+    <End Type="WorkforcePlanningModel.SubGroup" Role="SubGroup" Multiplicity="0..1" />
+    <End Type="WorkforcePlanningModel.Position" Role="Position" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="SubGroup">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Position">
+        <PropertyRef Name="SubGroupId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_dbo_Position_dbo_WorkSchedule_WorkScheduleId">
+    <End Type="WorkforcePlanningModel.WorkSchedule" Role="WorkSchedule" Multiplicity="0..1" />
+    <End Type="WorkforcePlanningModel.Position" Role="Position" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="WorkSchedule">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Position">
+        <PropertyRef Name="WorkScheduleId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Position_ManagingPosition">
+    <End Type="WorkforcePlanningModel.Position" Role="Position" Multiplicity="0..1" />
+    <End Type="WorkforcePlanningModel.Position" Role="Position1" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Position">
+        <PropertyRef Name="Number" />
+      </Principal>
+      <Dependent Role="Position1">
+        <PropertyRef Name="ManagingPositionNumber" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_PositionRevision_Position">
+    <End Type="WorkforcePlanningModel.Position" Role="Position" Multiplicity="1" />
+    <End Type="WorkforcePlanningModel.PositionRevision" Role="PositionRevision" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Position">
+        <PropertyRef Name="Number" />
+      </Principal>
+      <Dependent Role="PositionRevision">
+        <PropertyRef Name="Number" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityType Name="PositionHistory">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="PositionDataSetId" Type="Int32" Nullable="false" />
+    <Property Name="ManagingPositionNumber" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="JobId" Type="Int32" />
+    <Property Name="JobFamilyId" Type="Int32" />
+    <Property Name="GoaId" Type="Int32" />
+    <Property Name="CostCentreId" Type="Int32" />
+    <Property Name="HomeCostCentreId" Type="Int32" />
+    <Property Name="FlowToCostCentreId" Type="Int32" />
+    <Property Name="LocationId" Type="Int32" />
+    <Property Name="WorkLocationId" Type="Int32" />
+    <Property Name="SubGroupId" Type="Int32" />
+    <Property Name="EmploymentTypeId" Type="Int32" />
+    <Property Name="PersonnelSubAreaId" Type="Int32" />
+    <Property Name="PayScaleTypeId" Type="Int32" />
+    <Property Name="WorkScheduleId" Type="Int32" />
+    <Property Name="EmployeeNumber" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="Title" Type="String" Nullable="false" MaxLength="256" FixedLength="false" Unicode="true" />
+    <Property Name="Number" Type="String" Nullable="false" MaxLength="15" FixedLength="false" Unicode="true" />
+    <Property Name="PayScaleGroupMin" Type="String" MaxLength="10" FixedLength="false" Unicode="true" />
+    <Property Name="PayScaleGroupMax" Type="String" MaxLength="10" FixedLength="false" Unicode="true" />
+    <Property Name="PayScaleLevelMin" Type="String" MaxLength="10" FixedLength="false" Unicode="true" />
+    <Property Name="PayScaleLevelMax" Type="String" MaxLength="10" FixedLength="false" Unicode="true" />
+    <Property Name="OvertimeExempt" Type="Boolean" Nullable="false" />
+    <Property Name="HardToRecruit" Type="Boolean" Nullable="false" />
+    <Property Name="DoesCountAsHeadCount" Type="Boolean" Nullable="false" />
+    <Property Name="IsCriticalSkill" Type="Boolean" Nullable="false" />
+    <Property Name="PlannedStartDate" Type="DateTime" Precision="3" />
+    <Property Name="PlannedEndDate" Type="DateTime" Precision="3" />
+    <Property Name="PlanningSalary" Type="Decimal" Nullable="false" Precision="18" Scale="2" />
+    <Property Name="EmploymentPercentage" Type="Decimal" Nullable="false" Precision="18" Scale="2" />
+    <Property Name="FullTimeEquivalencyPercentage" Type="Decimal" Nullable="false" Precision="18" Scale="2" />
+    <Property Name="PlanningSalaryBand" Type="Int32" />
+    <Property Name="ModifiedBy" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="CreatedBy" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="CreatedDate" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="ModifiedDate" Type="DateTime" Nullable="false" Precision="3" />
+  </EntityType>
+  <EntityType Name="Task">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="TaskDefinitionDetailId" Type="Int32" Nullable="false" />
+    <Property Name="AssignedToUserId" Type="Int32" />
+    <Property Name="PositionRevisionId" Type="Int32" />
+    <Property Name="TaskStatusId" Type="Int32" Nullable="false" />
+    <Property Name="Number" Type="Int32" Nullable="false" />
+    <Property Name="TaskStatusDate" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="Comments" Type="String" MaxLength="2000" FixedLength="false" Unicode="true" />
+    <Property Name="EffectiveFromDate" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="EffectiveToDate" Type="DateTime" Precision="3" />
+    <Property Name="CreatedBy" Type="String" Nullable="false" MaxLength="40" FixedLength="false" Unicode="true" />
+    <Property Name="CreatedDate" Type="DateTime" Nullable="false" Precision="3" />
+    <NavigationProperty Name="PositionRevision" Relationship="WorkforcePlanningModel.FK_Task_PositionRevision" FromRole="Task" ToRole="PositionRevision" />
+    <NavigationProperty Name="TaskDefinitionDetail" Relationship="WorkforcePlanningModel.FK_Task_TaskDefinitionDetail" FromRole="Task" ToRole="TaskDefinitionDetail" />
+    <NavigationProperty Name="TaskStatu" Relationship="WorkforcePlanningModel.FK_Task_TaskStatus" FromRole="Task" ToRole="TaskStatu" />
+    <NavigationProperty Name="User" Relationship="WorkforcePlanningModel.FK_Task_User" FromRole="Task" ToRole="User" />
+  </EntityType>
+  <EntityType Name="TaskDefinition">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Name" Type="String" Nullable="false" MaxLength="256" FixedLength="false" Unicode="true" />
+    <Property Name="IsActive" Type="String" Nullable="false" MaxLength="1" FixedLength="false" Unicode="true" />
+    <Property Name="CreatedBy" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="CreatedDate" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="ModifiedBy" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="ModifiedDate" Type="DateTime" Precision="3" />
+    <NavigationProperty Name="TaskDefinitionDetails" Relationship="WorkforcePlanningModel.FK_TaskDefinitionDetail_TaskDefinition" FromRole="TaskDefinition" ToRole="TaskDefinitionDetail" />
+  </EntityType>
+  <EntityType Name="TaskDefinitionDetail">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="TaskDefinitionID" Type="Int32" Nullable="false" />
+    <Property Name="Name" Type="String" Nullable="false" MaxLength="256" FixedLength="false" Unicode="true" />
+    <Property Name="Sequence" Type="Int32" Nullable="false" />
+    <Property Name="IsActive" Type="String" Nullable="false" MaxLength="1" FixedLength="false" Unicode="true" />
+    <Property Name="CreatedBy" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="CreatedDate" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="ModifiedBy" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="ModifiedDate" Type="DateTime" Precision="3" />
+    <NavigationProperty Name="Tasks" Relationship="WorkforcePlanningModel.FK_Task_TaskDefinitionDetail" FromRole="TaskDefinitionDetail" ToRole="Task" />
+    <NavigationProperty Name="TaskDefinition" Relationship="WorkforcePlanningModel.FK_TaskDefinitionDetail_TaskDefinition" FromRole="TaskDefinitionDetail" ToRole="TaskDefinition" />
+  </EntityType>
+  <EntityType Name="TaskStatu">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Name" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="Description" Type="String" MaxLength="256" FixedLength="false" Unicode="true" />
+    <Property Name="IsActive" Type="String" Nullable="false" MaxLength="1" FixedLength="false" Unicode="true" />
+    <Property Name="CreatedBy" Type="String" Nullable="false" MaxLength="40" FixedLength="false" Unicode="true" />
+    <Property Name="CreatedDate" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="ModifiedBy" Type="String" MaxLength="40" FixedLength="false" Unicode="true" />
+    <Property Name="ModifiedDate" Type="DateTime" Precision="3" />
+    <NavigationProperty Name="Tasks" Relationship="WorkforcePlanningModel.FK_Task_TaskStatus" FromRole="TaskStatu" ToRole="Task" />
+  </EntityType>
+  <EntityType Name="TaskType">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Name" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="Description" Type="String" MaxLength="256" FixedLength="false" Unicode="true" />
+    <Property Name="IsActive" Type="String" MaxLength="1" FixedLength="false" Unicode="true" />
+    <Property Name="ModifiedBy" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="CreatedBy" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="CreatedDate" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="ModifiedDate" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="EffectiveFromDate" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="EffectiveToDate" Type="DateTime" Precision="3" />
+  </EntityType>
+  <EntityType Name="User">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="UserId" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="Name" Type="String" Nullable="false" MaxLength="200" FixedLength="false" Unicode="true" />
+    <Property Name="CreatedBy" Type="String" Nullable="false" MaxLength="40" FixedLength="false" Unicode="true" />
+    <Property Name="CreatedDate" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="ModifiedBy" Type="String" MaxLength="40" FixedLength="false" Unicode="true" />
+    <Property Name="ModifiedDate" Type="DateTime" Precision="3" />
+    <NavigationProperty Name="Tasks" Relationship="WorkforcePlanningModel.FK_Task_User" FromRole="User" ToRole="Task" />
+  </EntityType>
+  <Association Name="FK_Task_PositionRevision">
+    <End Type="WorkforcePlanningModel.PositionRevision" Role="PositionRevision" Multiplicity="0..1" />
+    <End Type="WorkforcePlanningModel.Task" Role="Task" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="PositionRevision">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Task">
+        <PropertyRef Name="PositionRevisionId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Task_TaskDefinitionDetail">
+    <End Type="WorkforcePlanningModel.TaskDefinitionDetail" Role="TaskDefinitionDetail" Multiplicity="1" />
+    <End Type="WorkforcePlanningModel.Task" Role="Task" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="TaskDefinitionDetail">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Task">
+        <PropertyRef Name="TaskDefinitionDetailId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Task_TaskStatus">
+    <End Type="WorkforcePlanningModel.TaskStatu" Role="TaskStatu" Multiplicity="1" />
+    <End Type="WorkforcePlanningModel.Task" Role="Task" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="TaskStatu">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Task">
+        <PropertyRef Name="TaskStatusId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Task_User">
+    <End Type="WorkforcePlanningModel.User" Role="User" Multiplicity="0..1" />
+    <End Type="WorkforcePlanningModel.Task" Role="Task" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="User">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Task">
+        <PropertyRef Name="AssignedToUserId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_TaskDefinitionDetail_TaskDefinition">
+    <End Type="WorkforcePlanningModel.TaskDefinition" Role="TaskDefinition" Multiplicity="1" />
+    <End Type="WorkforcePlanningModel.TaskDefinitionDetail" Role="TaskDefinitionDetail" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="TaskDefinition">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="TaskDefinitionDetail">
+        <PropertyRef Name="TaskDefinitionID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+</Schema>

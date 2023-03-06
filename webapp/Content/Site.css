@@ -1,0 +1,91 @@
+﻿body {
+    padding-top: 50px;
+    padding-bottom: 20px;
+    background-color: #FFF;
+}
+
+/* Set padding to keep content from hitting the edges */
+.body-content {
+    padding-left: 15px;
+    padding-right: 15px;
+}
+
+/* Override the default bootstrap behavior where horizontal description lists 
+   will truncate terms that are too long to fit in the left column 
+*/
+.dl-horizontal dt {
+    white-space: normal;
+}
+
+/* Set width on the form input elements since they're 100% wide by default */
+input,
+select,
+textarea {
+    max-width: 280px;
+}
+
+
+/*Bootstrap Overrides*/
+    .navbar {
+        background-color: #1e90ff;
+    }
+
+    .navbar-nav a:link {
+        color: #FFF;
+    }
+
+    .navbar-nav a:visited {
+        color: #FFF;
+    }
+
+    .navbar-nav a:active {
+        color: #FFF;
+    }
+
+    .navbar-brand {
+        color: #FFF;
+    }
+
+    .modal-header, h4, .close {
+      background-color: #1e90ff;
+      color:white !important;
+      text-align: center;
+      font-size: 30px;
+      }
+      .modal-footer {
+          background-color: #1e90ff;
+      }
+      .modal-lg {
+          width: 800px;
+      }
+      .row {
+          margin-bottom: 10px;
+        }
+  
+
+  /* End Bootstrap Overrides */
+
+  /*Site Specific Settings*/
+#lblModalTitle {
+    margin-left: 10px;
+}
+
+   .labelRow {
+       margin-bottom: 10px;
+   }
+
+   .txtLabel {
+       font-weight: bold;
+   }
+
+   .colNo {
+       color: red;
+   }
+
+   .colYes {
+       color: green;
+   }
+
+   .top-margin-default {
+       margin-top: 15px;
+   }

@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="4e943049b60047ee935bcf7486534f12" Name="Diagram1" ZoomLevel="71">
+        <EntityTypeShape EntityType="WorkforcePlanningModel.CostCentre" Width="1.5" PointX="0.625" PointY="4.625" />
+        <EntityTypeShape EntityType="WorkforcePlanningModel.DataSourceFileConfiguration" Width="1.5" PointX="16.25" PointY="0.75" />
+        <EntityTypeShape EntityType="WorkforcePlanningModel.Employee" Width="1.5" PointX="10.875" PointY="15.125" />
+        <EntityTypeShape EntityType="WorkforcePlanningModel.EmployeeHistory" Width="1.5" PointX="13" PointY="16.25" />
+        <EntityTypeShape EntityType="WorkforcePlanningModel.EmploymentType" Width="1.5" PointX="11.875" PointY="10.875" />
+        <EntityTypeShape EntityType="WorkforcePlanningModel.Goa" Width="1.5" PointX="0.5" PointY="11.75" />
+        <EntityTypeShape EntityType="WorkforcePlanningModel.Job" Width="1.5" PointX="0.5" PointY="8.375" />
+        <EntityTypeShape EntityType="WorkforcePlanningModel.JobFamily" Width="1.5" PointX="7.875" PointY="16" />
+        <EntityTypeShape EntityType="WorkforcePlanningModel.Location" Width="1.5" PointX="5.75" PointY="27.5" />
+        <EntityTypeShape EntityType="WorkforcePlanningModel.LocationType" Width="1.5" PointX="9.25" PointY="27.75" />
+        <EntityTypeShape EntityType="WorkforcePlanningModel.PayScaleType" Width="1.5" PointX="5.75" PointY="20.125" />
+        <EntityTypeShape EntityType="WorkforcePlanningModel.PersonnelSubArea" Width="1.5" PointX="0.5" PointY="18.75" />
+        <EntityTypeShape EntityType="WorkforcePlanningModel.Position" Width="1.5" PointX="3" PointY="4.625" />
+        <EntityTypeShape EntityType="WorkforcePlanningModel.PositionDataSet" Width="1.5" PointX="0.5" PointY="15.125" />
+        <EntityTypeShape EntityType="WorkforcePlanningModel.PositionRevision" Width="1.5" PointX="5" PointY="0.5" />
+        <EntityTypeShape EntityType="WorkforcePlanningModel.SourceFileColumnMapping" Width="1.5" PointX="18.5" PointY="0.625" />
+        <EntityTypeShape EntityType="WorkforcePlanningModel.SubGroup" Width="1.5" PointX="9.375" PointY="9.125" />
+        <EntityTypeShape EntityType="WorkforcePlanningModel.WorkSchedule" Width="1.5" PointX="5.625" PointY="23.75" />
+        <AssociationConnector Association="WorkforcePlanningModel.FK_dbo_Position_dbo_CostCentre_CostCentreId" />
+        <AssociationConnector Association="WorkforcePlanningModel.FK_dbo_Position_dbo_CostCentre_FlowToCostCentreId" />
+        <AssociationConnector Association="WorkforcePlanningModel.FK_dbo_Position_dbo_CostCentre_HomeCostCentreId" />
+        <AssociationConnector Association="WorkforcePlanningModel.FK_dbo_SourceFileColumnMappings_dbo_DataSourceFileConfigurations_DataSourceFileId" />
+        <AssociationConnector Association="WorkforcePlanningModel.FK_dbo_Employee_dbo_EmploymentType_EmploymentTypeId" />
+        <AssociationConnector Association="WorkforcePlanningModel.FK_dbo_Employee_dbo_SubGroup_SubGroupId" />
+        <AssociationConnector Association="WorkforcePlanningModel.FK_Employee_Employee" />
+        <AssociationConnector Association="WorkforcePlanningModel.FK_EmployeeHistory_Employee" />
+        <AssociationConnector Association="WorkforcePlanningModel.FK_Position_Employee" />
+        <AssociationConnector Association="WorkforcePlanningModel.FK_dbo_Position_dbo_EmploymentType_EmploymentTypeId" />
+        <AssociationConnector Association="WorkforcePlanningModel.FK_dbo_Position_dbo_Goa_GoaId" />
+        <AssociationConnector Association="WorkforcePlanningModel.FK_dbo_Position_dbo_Job_JobId" />
+        <AssociationConnector Association="WorkforcePlanningModel.FK_dbo_Position_dbo_JobFamily_JobFamilyId" />
+        <AssociationConnector Association="WorkforcePlanningModel.FK_dbo_Location_dbo_LocationType_LocationTypeId" />
+        <AssociationConnector Association="WorkforcePlanningModel.FK_dbo_Position_dbo_Location_LocationId" />
+        <AssociationConnector Association="WorkforcePlanningModel.FK_dbo_Position_dbo_Location_WorkLocationId" />
+        <AssociationConnector Association="WorkforcePlanningModel.FK_dbo_Position_dbo_PayScaleType_PayScaleTypeId" />
+        <AssociationConnector Association="WorkforcePlanningModel.FK_dbo_Position_dbo_PersonnelSubArea_PersonnelSubAreaId" />
+        <AssociationConnector Association="WorkforcePlanningModel.FK_dbo_Position_dbo_PositionDataSets_PositionDataSetId" />
+        <AssociationConnector Association="WorkforcePlanningModel.FK_dbo_Position_dbo_SubGroup_SubGroupId" />
+        <AssociationConnector Association="WorkforcePlanningModel.FK_dbo_Position_dbo_WorkSchedule_WorkScheduleId" ManuallyRouted="true" >
+          <ConnectorPoint PointX="5.625" PointY="25.317047526041669" />
+          <ConnectorPoint PointX="4.3550638802083332" PointY="25.317047526041669" />
+          <ConnectorPoint PointX="4.1883972135416672" PointY="25.317047526041669" />
+          <ConnectorPoint PointX="3.4605688671875" PointY="25.317047526041669" />
+          <ConnectorPoint PointX="3.4605688671875" PointY="15.643453776041666" />
+        </AssociationConnector>
+        <AssociationConnector Association="WorkforcePlanningModel.FK_Position_ManagingPosition" />
+        <AssociationConnector Association="WorkforcePlanningModel.FK_PositionRevision_Position" />
+        <EntityTypeShape EntityType="WorkforcePlanningModel.PositionHistory" Width="1.5" PointX="7" PointY="2.5" />
+        <EntityTypeShape EntityType="WorkforcePlanningModel.Task" Width="1.5" PointX="11.625" PointY="1.125" />
+        <EntityTypeShape EntityType="WorkforcePlanningModel.TaskDefinition" Width="1.5" PointX="16.375" PointY="8" />
+        <EntityTypeShape EntityType="WorkforcePlanningModel.TaskDefinitionDetail" Width="1.5" PointX="16.25" PointY="4.625" />
+        <EntityTypeShape EntityType="WorkforcePlanningModel.TaskStatu" Width="1.5" PointX="9.25" PointY="3.375" />
+        <EntityTypeShape EntityType="WorkforcePlanningModel.TaskType" Width="1.5" PointX="0.75" PointY="0.75" />
+        <EntityTypeShape EntityType="WorkforcePlanningModel.User" Width="1.5" PointX="12.125" PointY="6" />
+        <AssociationConnector Association="WorkforcePlanningModel.FK_Task_PositionRevision" />
+        <AssociationConnector Association="WorkforcePlanningModel.FK_Task_TaskDefinitionDetail" />
+        <AssociationConnector Association="WorkforcePlanningModel.FK_Task_TaskStatus" />
+        <AssociationConnector Association="WorkforcePlanningModel.FK_Task_User" />
+        <AssociationConnector Association="WorkforcePlanningModel.FK_TaskDefinitionDetail_TaskDefinition" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>

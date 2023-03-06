@@ -1,0 +1,98 @@
+﻿@model src.Models.ViewModelBase
+
+@using System.IdentityModel.Tokens
+@using System.Web.Mvc.Html
+@using WorkforcePlanning.Core.Views.App_Helpers
+
+@{
+    ViewBag.Title = "Import Data";
+
+
+}
+
+
+<div id="content">
+
+    <div class="row">
+        <div class="col-xs-12 col-sm-7 col-md-7 col-lg-4">
+            <h1 class="page-title txt-color-blueDark">
+                <i class="fa fa-table fa-fw "></i>
+                Administration
+                <span>
+                    >
+                    Manual File Upload
+                </span>
+            </h1>
+        </div>
+    </div>
+
+    <div class="row">
+
+        <!-- NEW WIDGET START -->
+        <article class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+
+            <!-- Widget ID (each widget will need unique ID)-->
+            <div class="jarviswidget jarviswidget-color-darken" id="wid-id-0" data-widget-editbutton="false">
+                <!-- widget options:
+                usage: <div class="jarviswidget" id="wid-id-0" data-widget-editbutton="false">
+
+                data-widget-colorbutton="false"
+                data-widget-editbutton="false"
+                data-widget-togglebutton="false"
+                data-widget-deletebutton="false"
+                data-widget-fullscreenbutton="false"
+                data-widget-custombutton="false"
+                data-widget-collapsed="true"
+                data-widget-sortable="false"
+
+                -->
+                <header>
+                    <span class="widget-icon"> <i class="fa fa-file"></i> </span>
+                    <h2>File upload Details </h2>
+
+                </header>
+
+                <!-- widget div-->
+                <div>
+
+                    <!-- widget edit box -->
+                    <div class="jarviswidget-editbox">
+                        <!-- This area used as dropdown edit box -->
+
+                    </div>
+                    <!-- end widget edit box -->
+                    <!-- widget content -->
+                    <div class="widget-body">
+                        @using (Html.BeginForm("UploadFile", "FileUpload", FormMethod.Post,
+new { enctype = "multipart/form-data" }))
+                        {
+                            <div class="row">
+                                @Html.Label("Select a file to upload", 4)
+                                @Html.Upload("file", 8)
+                            </div>
+                            <div class="row">
+                                @Html.Label("Select the date the file is effective from", 4)
+                                @Html.TextDate(DateTime.Now.ToShortDateString(), "txtAsOfDate", 8)
+                            </div>
+                            <div class="row">
+                                @Html.Submit("Upload File", 10)
+                            </div>
+                        }   
+                    </div>
+                </div>
+            </div>
+        </article>
+    </div>
+
+
+
+            
+</div>
+@section scripts{
+<script type="text/javascript">
+    $("[data-type='date']").datepicker({
+        orientation: "bottom right"
+    });
+</script>
+     
+}

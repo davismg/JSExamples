@@ -1,0 +1,68 @@
+﻿@model WorkforcePlanning.Core.Views.Models.PositionListViewModel
+
+<h1 class="page-title txt-color-blueDark">
+    <i class="fa-fw fa fa-user"></i>
+    Positions
+    <span>
+        >
+        All Positions
+    </span>
+</h1>
+
+<div class="container">
+    <h1>Positions</h1>
+    <div class="row">
+        <div class="col-md-4">The following outline the positions for the period of</div>
+        <div class="col-md-2"><input id="txtAsOfDate" type="text" class="form-control" value="@(Model.AsOfDate.ToShortDateString())"></div>
+        <div class="col-md-2"><input type="Button" class="btn btn-info" value="Refresh" /></div>
+        <div class="col-md-5">&nbsp;</div>
+    </div>
+    
+</div>
+
+<div class="container">
+    <table class="table table-responsive table-striped table-hover">
+        <thead>
+        <tr>
+            <th>Number</th>
+            <th>Title</th>
+            <th>Held By</th>
+            <th>Changed in Period </th>
+        </tr>
+        </thead>
+        <tbody>
+        @{
+            foreach (var position in Model.Positions)
+            {
+                <tr>
+                    <td>
+                        <a href="@Url.Action("Position", "Home", new {number=position.Position.Number})" data-id="@position.Position.Number" id="lblPosition">@position.Position.Number</a>
+                    </td>
+                    <td>@position.Position.Title</td>
+                    <td>
+                        <a href="#" data-id="@position.Position.Number" id="lblHeldBy">@position.HeldByName</a>
+                    </td>
+                    <td style="width: 40px" class="text-center">
+                        @{
+                            if (position.HasChanged)
+                            {
+                                <i class="fa fa-star"></i>
+                            }
+                        }
+                    </td>
+                    <td>
+                        <a href="@Url.Action("Edit", "Home", new {number=position.Position.Number})" data-id="@position.Position.Number" id="lblPositionEdit">Edit</a>
+                    </td>
+                </tr>
+            }
+        }
+        </tbody>
+    </table>
+</div>
+@section scripts
+{
+    <script type="text/javascript" src="@(Url.Content("~/scripts/Controllers/PositionController.js"))"></script>
+    <script type="text/javascript">
+        PositionController.Initialize();
+    </script>
+}

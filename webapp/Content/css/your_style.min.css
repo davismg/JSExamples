@@ -1,0 +1,97 @@
+/*
+ * It is advised not to edit the smartadmin_production.css
+ * as this will override any changes you make in the 
+ * later versions of this theme. 
+ * 
+ * We advise that you use use this CSS to override 
+ * SmartAdmin styles. 
+ * 
+ * Rename the stylesheet to whatever your liking so it will stay
+ * unique to you with each update of SmartAdmin.
+ */
+
+/*
+ * INDEX
+ * 
+ * - HTML
+ * - BODY
+ * - CUSTOM STYLES
+ */
+
+
+/* Override the default bootstrap behavior where horizontal description lists 
+   will truncate terms that are too long to fit in the left column 
+*/
+.dl-horizontal dt {
+    white-space: normal;
+}
+
+/* Set width on the form input elements since they're 100% wide by default */
+input,
+select,
+textarea {
+    max-width: 280px;
+}
+
+
+/*Bootstrap Overrides*/
+    
+    .navbar-nav a:link {
+        color: #FFF;
+    }
+
+    .navbar-nav a:visited {
+        color: #FFF;
+    }
+
+    .navbar-nav a:active {
+        color: #FFF;
+    }
+
+    .navbar-brand {
+        color: #FFF;
+    }
+
+    .modal-header, .close {
+      background-color: #7d7d7d;
+      color:white !important;
+      text-align: center;
+      font-size: 30px;
+      }
+      .modal-footer {
+          background-color: #7d7d7d;
+      }
+      .modal-lg {
+          width: 800px;
+      }
+      .row {
+          margin-bottom: 10px;
+        }
+  
+
+  /* End Bootstrap Overrides */
+
+  /*Site Specific Settings*/
+#lblModalTitle {
+    margin-left: 10px;
+}
+
+   .labelRow {
+       margin-bottom: 10px;
+   }
+
+   .txtLabel {
+       font-weight: bold;
+   }
+
+   .colNo {
+       color: red;
+   }
+
+   .colYes {
+       color: green;
+   }
+
+   .top-margin-default {
+       margin-top: 15px;
+   }

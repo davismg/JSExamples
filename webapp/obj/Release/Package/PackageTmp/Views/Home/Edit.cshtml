@@ -1,0 +1,206 @@
+﻿@using System.Globalization
+@using WorkforcePlanning.Core.Views.App_Helpers
+@model src.Models.PositionViewModel
+
+
+<h1 class="page-title txt-color-blueDark">
+    <i class="fa-fw fa fa-user"></i>
+    Positions
+    <span>
+        >
+        All Positions
+    </span>
+    <span>
+        >
+        @Model.Position.DisplayName
+    </span>
+</h1>
+
+
+<div class="container well">
+@*    <form class="smart-form">*@
+    <form >
+        <div class="row">
+            <div class="col-md-8">
+                <h3>@Model.Position.Title</h3>
+                @Html.Hidden("txtTitle", "")
+            </div>
+            <div class="col-md-4" style="text-align: right; padding-top: 18px;">
+                <button class="btn btn-info" type="submit" id="btnSave">Save</button>
+                <button class="btn btn-error" type="button" id="btnCancel">Cancel</button>
+            </div>
+        </div>
+        <div class="row">
+            @Html.Label("Position Number: ", 3)
+            @Html.Value(Model.Position.Number, 9)
+            @Html.Hidden("txtNumber", Model.Position.Number)
+
+        </div>
+        <div class="row">
+            @Html.Label("Employee Name: ", 3)
+            @Html.AutoComplete(!Model.Position.IsFilled ? "" : Model.Position.Employee.FullName, "txtHeldBy", 5, "Employee", "Search")
+        </div>
+        <hr />
+
+
+
+        <div class="labelRow">
+            <div class="row">
+                @Html.Label("Managing Position", 5)
+                <div class="col-md-1">&nbsp;</div>
+                @Html.Label("Numberof Reports", 6)
+            </div>
+            <div class="row">
+                <div class="form-group">
+                    @Html.AutoComplete(Model.Position.ManagingPosition == null ? "" : Model.Position.ManagingPosition.Title, "txtManagingPosition", 5, "Home", "Search")
+                    <div class="col-md-1">&nbsp;</div>
+                    @Html.Value((Model.Position.DirectReports == null || Model.Position.DirectReports.Count == 0) ? "0" : Model.Position.DirectReports.Count.ToString(), 6)
+                </div>
+            </div>
+        </div>
+        <div class="labelRow">
+            <div class="row">
+                @Html.Label("Planned Start Date", 3)
+                @Html.Label("Planned End Date", 3)
+                @Html.Label("Planned Salary", 3)
+                @Html.Label("Planned Salery Band", 3)
+            </div>
+            <div class="row">
+                @Html.TextDate(Model.PlannedStartDate, "PlannedStartDate", 3)
+                @Html.TextDate(Model.PlannedEndDate, "PlannedEndDate", 3)
+                @Html.TextCurrency(Model.Position.PlanningSalary.ToString(), "PlanningSalary", 3)
+                @Html.Text(Model.Position.PlanningSalaryBand.ToString(), "PlanningSalaryBand", 3)
+            </div>
+        </div>
+
+
+
+        <div role="tabpanel">
+            <ul class="nav nav-tabs" role="tablist" id="tabContainer">
+                <li role="presentation" class="active"><a data-toggle="tab" href="#pnlPositionDetails">Position Details</a></li>
+                <li role="presentation"><a data-toggle="tab" href="#pnlCostCenters">Cost Centers</a></li>
+                <li role="presentation"><a data-toggle="tab" href="#pnlDirectReports">Direct Reports</a></li>
+            </ul>
+
+            <div class="tab-content">
+                <div id="pnlPositionDetails" class="tab-pane fade in active">
+                    <h3>Position Details</h3>
+                    <div class="labelRow">
+                        <fieldset>
+                            <div class="row">
+                                <div class="col-md-3">
+                                    @Html.YesNo(Model.Position.DoesCountAsHeadCount, "DoesCountASHeadCount", "Head Count")
+                                </div>
+                                <div class="col-md-3">
+                                    @Html.YesNo(Model.Position.IsCriticalSkill, "IsCriticalSkill", "Critical Skill")
+                                </div>
+                                <div class="col-md-3">
+                                    @Html.YesNo(Model.Position.HardToRecruit, "HardToRecruit", "Hard to Recruit")
+                                </div>
+                                <div class="col-md-3">
+                                    @Html.YesNo(Model.Position.OvertimeExempt, "OvertimeExempt", "Overtime Exempt")
+                                </div>
+                            </div>
+                        </fieldset>
+                    </div>
+                </div>
+                <div id="pnlCostCenters" class="tab-pane fade">
+                    <h3>Cost Center Details</h3>
+                    <div class="labelRow">
+                        <div class="row">
+                            @Html.Label("Cost Centre", 4)
+                            @Html.Label("Home Cost Centre", 4)
+                            @Html.Label("Flow To Cost Centre", 4)
+                        </div>
+                        <div class="row">
+                            @Html.AutoComplete(Model.Position.CostCentre == null ? string.Empty : Model.Position.CostCentre.DisplayName, "txtCostCentre", 4, "CostCentre", "Search")
+                            @Html.AutoComplete(Model.Position.HomeCostCentre == null ? string.Empty : Model.Position.HomeCostCentre.DisplayName, "txtHomeCostCentre", 4, "CostCentre", "Search")
+                            @Html.AutoComplete(Model.Position.FlowToCostCentre == null ? string.Empty : Model.Position.FlowToCostCentre.DisplayName, "txtFlowToCostCentre", 4, "CostCentre", "Search")
+                        </div>
+                    </div>
+                </div>
+
+                <div id="pnlDirectReports" class="tab-pane fade">
+                    <h3>Direct Reports</h3>
+                    <div class="labelRow">
+                        @foreach (var position in Model.Position.DirectReports)
+                        {
+                            <div class="row">
+                                <div class="col-md-3">
+                                    <div>@position.DisplayName</div>
+                                </div>
+                                <div class="col-md-1">X</div>
+                            </div>
+                        }
+                    </div>
+                </div>
+            </div>
+        </div>
+    </form>
+</div>
+
+@section scripts
+{
+    <script language="javascript" type="text/javascript">
+        $(document)
+            .ready(function() {
+
+                
+                $("[data-provide='typeahead'")
+                    .select2({
+                        
+                        minimumInputLength: 2,
+                        ajax: {
+                            url: function () {
+                                debugger;
+                                return "/" + $(this).attr("data-controller") +
+                                    "/" +
+                                    $(this).attr("data-action");
+                            },
+                            dataType: 'json',
+                            delay: 250,
+                            data: function(params) {
+    
+                                return {
+                                    q: params.term
+                                };
+                            },
+                            results: function(data, params) {
+                                // parse the results into the format expected by Select2
+                                // since we are using custom formatting functions we do not need to
+                                // alter the remote JSON data, except to indicate that infinite
+                                // scrolling can be used
+                                params.page = params.page || 1;
+                                debugger;
+                                return {
+                                    results: data.items,
+                                    pagination: {
+                                        more: (params.page * 30) < data.total_count
+                                    }
+                                };
+                            }
+                        }
+
+
+//            source: function (query, process) {
+//                
+//                var controller = $("#" + this.$element[0].id).attr("data-controller");
+//                var action = $("#" + this.$element[0].id).attr("data-action");
+//                return $.get("/" + controller + "/" + action + "?q=" + query, function (data) {
+//                    console.log(data.search_results);
+//                    return process(data.search_results);
+//                });
+//            },
+//            displayText: function (item) { return item.Value; },
+//            afterSelect: function(item) {
+//                console.log(item);
+//                console.log(item.Key);
+//            }
+                    });
+
+                $("#btnTest").on("click", function() {
+                            console.log("Key: " + $("#txtHeldBy").typeahead("getActive").Key);
+                        });
+            });
+    </script>
+}
